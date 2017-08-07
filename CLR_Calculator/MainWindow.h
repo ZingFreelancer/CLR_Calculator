@@ -34,15 +34,15 @@ namespace CLR_Calculator {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::MenuStrip^  menuStrip1;
+
 	protected:
-	private: System::Windows::Forms::ToolStripMenuItem^  fileToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  standardToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  scientificToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  historyToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  exitToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  editToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
+
+
+
+
+
+
+
 	private: System::Windows::Forms::TextBox^  txt_display;
 	private: System::Windows::Forms::Button^  btn_erase;
 	private: System::Windows::Forms::Button^  btn_clear_everything;
@@ -141,8 +141,23 @@ private: System::Windows::Forms::Button^  btn_op_percent;
 
 
 	private: System::Windows::Forms::Panel^  panel1;
-	private: System::Windows::Forms::ToolStripMenuItem^  temperatureToolStripMenuItem;
+
 private: System::Windows::Forms::Label^  lbl_operator;
+private: System::Windows::Forms::ToolStripMenuItem^  fileToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^  standardToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^  scientificToolStripMenuItem;
+
+
+
+private: System::Windows::Forms::ToolStripMenuItem^  temperatureToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^  exitToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^  editToolStripMenuItem;
+private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
+private: System::Windows::Forms::MenuStrip^  menuStrip1;
+private: System::Windows::Forms::ListBox^  listB_history;
+private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
+
+
 
 	private:
 		/// <summary>
@@ -157,15 +172,6 @@ private: System::Windows::Forms::Label^  lbl_operator;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->standardToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->scientificToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->historyToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->temperatureToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->editToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->helpToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->txt_display = (gcnew System::Windows::Forms::TextBox());
 			this->btn_erase = (gcnew System::Windows::Forms::Button());
 			this->btn_clear_everything = (gcnew System::Windows::Forms::Button());
@@ -209,76 +215,18 @@ private: System::Windows::Forms::Label^  lbl_operator;
 			this->btn_op_percent = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->lbl_operator = (gcnew System::Windows::Forms::Label());
+			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->standardToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->scientificToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menu_history = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->temperatureToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->editToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->helpToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->listB_history = (gcnew System::Windows::Forms::ListBox());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// menuStrip1
-			// 
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
-				this->fileToolStripMenuItem,
-					this->editToolStripMenuItem, this->helpToolStripMenuItem
-			});
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
-			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1164, 24);
-			this->menuStrip1->TabIndex = 0;
-			this->menuStrip1->Text = L"menuStrip1";
-			// 
-			// fileToolStripMenuItem
-			// 
-			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
-				this->standardToolStripMenuItem,
-					this->scientificToolStripMenuItem, this->historyToolStripMenuItem, this->temperatureToolStripMenuItem, this->exitToolStripMenuItem
-			});
-			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
-			this->fileToolStripMenuItem->Size = System::Drawing::Size(37, 20);
-			this->fileToolStripMenuItem->Text = L"File";
-			// 
-			// standardToolStripMenuItem
-			// 
-			this->standardToolStripMenuItem->Name = L"standardToolStripMenuItem";
-			this->standardToolStripMenuItem->Size = System::Drawing::Size(141, 22);
-			this->standardToolStripMenuItem->Text = L"Standard";
-			this->standardToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::standardToolStripMenuItem_Click);
-			// 
-			// scientificToolStripMenuItem
-			// 
-			this->scientificToolStripMenuItem->Name = L"scientificToolStripMenuItem";
-			this->scientificToolStripMenuItem->Size = System::Drawing::Size(141, 22);
-			this->scientificToolStripMenuItem->Text = L"Scientific";
-			this->scientificToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::scientificToolStripMenuItem_Click);
-			// 
-			// historyToolStripMenuItem
-			// 
-			this->historyToolStripMenuItem->Name = L"historyToolStripMenuItem";
-			this->historyToolStripMenuItem->Size = System::Drawing::Size(141, 22);
-			this->historyToolStripMenuItem->Text = L"History";
-			// 
-			// temperatureToolStripMenuItem
-			// 
-			this->temperatureToolStripMenuItem->Name = L"temperatureToolStripMenuItem";
-			this->temperatureToolStripMenuItem->Size = System::Drawing::Size(141, 22);
-			this->temperatureToolStripMenuItem->Text = L"Temperature";
-			this->temperatureToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::temperatureToolStripMenuItem_Click);
-			// 
-			// exitToolStripMenuItem
-			// 
-			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
-			this->exitToolStripMenuItem->Size = System::Drawing::Size(141, 22);
-			this->exitToolStripMenuItem->Text = L"Exit";
-			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::exitToolStripMenuItem_Click);
-			// 
-			// editToolStripMenuItem
-			// 
-			this->editToolStripMenuItem->Name = L"editToolStripMenuItem";
-			this->editToolStripMenuItem->Size = System::Drawing::Size(39, 20);
-			this->editToolStripMenuItem->Text = L"Edit";
-			// 
-			// helpToolStripMenuItem
-			// 
-			this->helpToolStripMenuItem->Name = L"helpToolStripMenuItem";
-			this->helpToolStripMenuItem->Size = System::Drawing::Size(44, 20);
-			this->helpToolStripMenuItem->Text = L"Help";
 			// 
 			// txt_display
 			// 
@@ -335,6 +283,7 @@ private: System::Windows::Forms::Label^  lbl_operator;
 			this->btn_op_negative->TabIndex = 2;
 			this->btn_op_negative->Text = L"±";
 			this->btn_op_negative->UseVisualStyleBackColor = true;
+			this->btn_op_negative->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_negative_Click);
 			// 
 			// btn_seven
 			// 
@@ -514,6 +463,7 @@ private: System::Windows::Forms::Label^  lbl_operator;
 			this->btn_op_equals->TabIndex = 2;
 			this->btn_op_equals->Text = L"=";
 			this->btn_op_equals->UseVisualStyleBackColor = true;
+			this->btn_op_equals->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_equals_Click);
 			// 
 			// btn_op_divide
 			// 
@@ -765,11 +715,89 @@ private: System::Windows::Forms::Label^  lbl_operator;
 			this->lbl_operator->TabIndex = 4;
 			this->lbl_operator->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
+			// fileToolStripMenuItem
+			// 
+			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+				this->standardToolStripMenuItem,
+					this->scientificToolStripMenuItem, this->menu_history, this->temperatureToolStripMenuItem, this->exitToolStripMenuItem
+			});
+			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
+			this->fileToolStripMenuItem->Size = System::Drawing::Size(37, 20);
+			this->fileToolStripMenuItem->Text = L"File";
+			// 
+			// standardToolStripMenuItem
+			// 
+			this->standardToolStripMenuItem->Name = L"standardToolStripMenuItem";
+			this->standardToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->standardToolStripMenuItem->Text = L"Standard";
+			this->standardToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::standardToolStripMenuItem_Click);
+			// 
+			// scientificToolStripMenuItem
+			// 
+			this->scientificToolStripMenuItem->Name = L"scientificToolStripMenuItem";
+			this->scientificToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->scientificToolStripMenuItem->Text = L"Scientific";
+			this->scientificToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::scientificToolStripMenuItem_Click);
+			// 
+			// menu_history
+			// 
+			this->menu_history->Name = L"menu_history";
+			this->menu_history->Size = System::Drawing::Size(152, 22);
+			this->menu_history->Text = L"History";
+			this->menu_history->Click += gcnew System::EventHandler(this, &MainWindow::menu_history_Click);
+			// 
+			// temperatureToolStripMenuItem
+			// 
+			this->temperatureToolStripMenuItem->Name = L"temperatureToolStripMenuItem";
+			this->temperatureToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->temperatureToolStripMenuItem->Text = L"Temperature";
+			this->temperatureToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::temperatureToolStripMenuItem_Click);
+			// 
+			// exitToolStripMenuItem
+			// 
+			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
+			this->exitToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->exitToolStripMenuItem->Text = L"Exit";
+			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::exitToolStripMenuItem_Click);
+			// 
+			// editToolStripMenuItem
+			// 
+			this->editToolStripMenuItem->Name = L"editToolStripMenuItem";
+			this->editToolStripMenuItem->Size = System::Drawing::Size(39, 20);
+			this->editToolStripMenuItem->Text = L"Edit";
+			// 
+			// helpToolStripMenuItem
+			// 
+			this->helpToolStripMenuItem->Name = L"helpToolStripMenuItem";
+			this->helpToolStripMenuItem->Size = System::Drawing::Size(44, 20);
+			this->helpToolStripMenuItem->Text = L"Help";
+			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->fileToolStripMenuItem,
+					this->editToolStripMenuItem, this->helpToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(1164, 24);
+			this->menuStrip1->TabIndex = 0;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// listB_history
+			// 
+			this->listB_history->FormattingEnabled = true;
+			this->listB_history->Location = System::Drawing::Point(12, 441);
+			this->listB_history->Name = L"listB_history";
+			this->listB_history->Size = System::Drawing::Size(278, 134);
+			this->listB_history->TabIndex = 5;
+			// 
 			// MainWindow
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1164, 441);
+			this->ClientSize = System::Drawing::Size(1164, 581);
+			this->Controls->Add(this->listB_history);
 			this->Controls->Add(this->lbl_operator);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->btn_op_percent);
@@ -841,7 +869,6 @@ private: System::Windows::Forms::Label^  lbl_operator;
 		txt_display->Text = "0";
 		lbl_operator->Text = "";
 		standardToolStripMenuItem_Click(sender, e);
-		historyToolStripMenuItem->Visible = false;
 	}
 
 	private: System::Void standardToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
@@ -889,6 +916,7 @@ private: System::Windows::Forms::Label^  lbl_operator;
 	}
 	private: System::Void btn_sign_comma_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
+		//Handle decimal point
 		if (!txt_display->Text->Contains(","))
 		{
 			txt_display->Text = txt_display->Text + ",";
@@ -901,6 +929,73 @@ private: System::Windows::Forms::Label^  lbl_operator;
 		iFirstNum = Double::Parse(txt_display->Text);
 		txt_display->Text = "";
 		iOperator = op->Text;
+		lbl_operator->Text = System::Convert::ToString(iOperator);
+	}
+
+	private: System::Void btn_op_negative_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		//Plus / Minus
+		if (txt_display->Text->Contains("-"))
+		{
+			txt_display->Text = txt_display->Text->Remove(0, 1);
+		}
+		else
+		{
+			txt_display->Text = "-" + txt_display->Text;
+		}
+	}
+	private: System::Void btn_op_equals_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		iSecondNum = Double::Parse(txt_display->Text);
+		if (iOperator == "+")
+		{
+			iResult = iFirstNum + iSecondNum;
+			txt_display->Text = ""+iResult;
+			listB_history->Items->Add(System::Convert::ToString(lbl_operator->Text));
+		}
+		else if (iOperator == "-")
+		{
+			iResult = iFirstNum - iSecondNum;
+			txt_display->Text = "" + iResult;
+			listB_history->Items->Add(System::Convert::ToString(lbl_operator->Text));
+		}
+		else if (iOperator == "*")
+		{
+			iResult = iFirstNum * iSecondNum;
+			txt_display->Text = "" + iResult;
+			listB_history->Items->Add(System::Convert::ToString(lbl_operator->Text));
+		}
+		else if (iOperator == "/")
+		{
+			iResult = iFirstNum / iSecondNum;
+			txt_display->Text = "" + iResult;
+			listB_history->Items->Add(System::Convert::ToString(lbl_operator->Text));
+		}
+		else if (iOperator == "Mod")
+		{
+			iResult = (int)iFirstNum % (int)iSecondNum;
+			txt_display->Text = "" + iResult;
+			listB_history->Items->Add(System::Convert::ToString(lbl_operator->Text));
+		}
+		else if (iOperator == "Exp")
+		{
+			iResult = (iFirstNum, (1 / iSecondNum));
+			txt_display->Text = "" + iResult;
+			listB_history->Items->Add(System::Convert::ToString(lbl_operator->Text));
+		}
+	}
+	private: System::Void menu_history_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		if (menu_history->Checked == false)
+		{
+			menu_history->Checked = true;
+			MainWindow::Height = 620;
+		}
+		else
+		{
+			menu_history->Checked = false;
+			MainWindow::Height = 480;
+		}
 	}
 };
 }
