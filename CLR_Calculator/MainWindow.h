@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 namespace CLR_Calculator {
 
@@ -44,59 +44,105 @@ namespace CLR_Calculator {
 	private: System::Windows::Forms::ToolStripMenuItem^  editToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
 	private: System::Windows::Forms::TextBox^  txt_display;
-
-
-
-	private: System::Windows::Forms::Button^  btn_7;
-	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::Button^  btn_erase;
+	private: System::Windows::Forms::Button^  btn_clear_everything;
 	private: System::Windows::Forms::Button^  btn_clear;
 
+
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::Button^  btn_op_negative;
+	private: System::Windows::Forms::Button^  btn_seven;
+	private: System::Windows::Forms::Button^  btn_eight;
+	private: System::Windows::Forms::Button^  btn_nine;
 
-	private: System::Windows::Forms::Button^  button4;
-	private: System::Windows::Forms::Button^  button5;
-	private: System::Windows::Forms::Button^  button6;
+
+
+
 	private: System::Windows::Forms::Button^  btn_op_pluss;
+	private: System::Windows::Forms::Button^  btn_four;
+	private: System::Windows::Forms::Button^  btn_five;
+	private: System::Windows::Forms::Button^  btn_six;
 
-	private: System::Windows::Forms::Button^  button8;
-	private: System::Windows::Forms::Button^  button9;
-	private: System::Windows::Forms::Button^  button10;
+
+
+
 	private: System::Windows::Forms::Button^  btn_op_minus;
+	private: System::Windows::Forms::Button^  btn_one;
+	private: System::Windows::Forms::Button^  btn_two;
+	private: System::Windows::Forms::Button^  btn_three;
 
-	private: System::Windows::Forms::Button^  button12;
-	private: System::Windows::Forms::Button^  button13;
-	private: System::Windows::Forms::Button^  button14;
+
+
+
 	private: System::Windows::Forms::Button^  btn_op_multiply;
 
 	private: System::Windows::Forms::Button^  btn_0;
 	private: System::Windows::Forms::Button^  btn_sign_comma;
 	private: System::Windows::Forms::Button^  btn_op_equals;
 	private: System::Windows::Forms::Button^  btn_op_divide;
+	private: System::Windows::Forms::Button^  btn_op_pi;
 
 
 
 
-	private: System::Windows::Forms::Button^  button20;
-	private: System::Windows::Forms::Button^  button21;
-	private: System::Windows::Forms::Button^  button22;
-	private: System::Windows::Forms::Button^  button23;
-	private: System::Windows::Forms::Button^  button24;
-	private: System::Windows::Forms::Button^  button25;
-	private: System::Windows::Forms::Button^  button26;
-	private: System::Windows::Forms::Button^  button27;
-	private: System::Windows::Forms::Button^  button28;
-	private: System::Windows::Forms::Button^  button29;
-	private: System::Windows::Forms::Button^  button30;
-	private: System::Windows::Forms::Button^  button31;
-	private: System::Windows::Forms::Button^  button32;
-	private: System::Windows::Forms::Button^  button33;
-	private: System::Windows::Forms::Button^  button34;
-	private: System::Windows::Forms::Button^  button35;
-	private: System::Windows::Forms::Button^  button36;
-	private: System::Windows::Forms::Button^  button37;
-	private: System::Windows::Forms::Button^  button38;
-	private: System::Windows::Forms::Button^  button39;
+
+	private: System::Windows::Forms::Button^  btn_op_sinh;
+
+	private: System::Windows::Forms::Button^  btn_op_cosh;
+
+	private: System::Windows::Forms::Button^  btn_op_tanh;
+
+	private: System::Windows::Forms::Button^  btn_op_exp;
+	private: System::Windows::Forms::Button^  btn_op_log;
+
+
+
+	private: System::Windows::Forms::Button^  btn_op_sin;
+
+	private: System::Windows::Forms::Button^  btn_op_cos;
+
+	private: System::Windows::Forms::Button^  btn_op_tan;
+
+	private: System::Windows::Forms::Button^  btn_op_mod;
+	private: System::Windows::Forms::Button^  btn_op_sqrt;
+
+
+	private: System::Windows::Forms::Button^  btn_op_dec;
+
+	private: System::Windows::Forms::Button^  btn_op_bin;
+
+	private: System::Windows::Forms::Button^  btn_op_hex;
+
+	private: System::Windows::Forms::Button^  btn_op_oct;
+private: System::Windows::Forms::Button^  btn_op_x_base2;
+
+private: System::Windows::Forms::Button^  btn_op_x_base3;
+private: System::Windows::Forms::Button^  btn_op_one_divide_x;
+private: System::Windows::Forms::Button^  btn_op_in_x;
+private: System::Windows::Forms::Button^  btn_op_percent;
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::Panel^  panel1;
+	private: System::Windows::Forms::ToolStripMenuItem^  temperatureToolStripMenuItem;
+private: System::Windows::Forms::Label^  lbl_operator;
 
 	private:
 		/// <summary>
@@ -116,51 +162,53 @@ namespace CLR_Calculator {
 			this->standardToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->scientificToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->historyToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->temperatureToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->helpToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->txt_display = (gcnew System::Windows::Forms::TextBox());
-			this->btn_7 = (gcnew System::Windows::Forms::Button());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->btn_erase = (gcnew System::Windows::Forms::Button());
+			this->btn_clear_everything = (gcnew System::Windows::Forms::Button());
 			this->btn_clear = (gcnew System::Windows::Forms::Button());
 			this->btn_op_negative = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->button5 = (gcnew System::Windows::Forms::Button());
-			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->btn_seven = (gcnew System::Windows::Forms::Button());
+			this->btn_eight = (gcnew System::Windows::Forms::Button());
+			this->btn_nine = (gcnew System::Windows::Forms::Button());
 			this->btn_op_pluss = (gcnew System::Windows::Forms::Button());
-			this->button8 = (gcnew System::Windows::Forms::Button());
-			this->button9 = (gcnew System::Windows::Forms::Button());
-			this->button10 = (gcnew System::Windows::Forms::Button());
+			this->btn_four = (gcnew System::Windows::Forms::Button());
+			this->btn_five = (gcnew System::Windows::Forms::Button());
+			this->btn_six = (gcnew System::Windows::Forms::Button());
 			this->btn_op_minus = (gcnew System::Windows::Forms::Button());
-			this->button12 = (gcnew System::Windows::Forms::Button());
-			this->button13 = (gcnew System::Windows::Forms::Button());
-			this->button14 = (gcnew System::Windows::Forms::Button());
+			this->btn_one = (gcnew System::Windows::Forms::Button());
+			this->btn_two = (gcnew System::Windows::Forms::Button());
+			this->btn_three = (gcnew System::Windows::Forms::Button());
 			this->btn_op_multiply = (gcnew System::Windows::Forms::Button());
 			this->btn_0 = (gcnew System::Windows::Forms::Button());
 			this->btn_sign_comma = (gcnew System::Windows::Forms::Button());
 			this->btn_op_equals = (gcnew System::Windows::Forms::Button());
 			this->btn_op_divide = (gcnew System::Windows::Forms::Button());
-			this->button20 = (gcnew System::Windows::Forms::Button());
-			this->button21 = (gcnew System::Windows::Forms::Button());
-			this->button22 = (gcnew System::Windows::Forms::Button());
-			this->button23 = (gcnew System::Windows::Forms::Button());
-			this->button24 = (gcnew System::Windows::Forms::Button());
-			this->button25 = (gcnew System::Windows::Forms::Button());
-			this->button26 = (gcnew System::Windows::Forms::Button());
-			this->button27 = (gcnew System::Windows::Forms::Button());
-			this->button28 = (gcnew System::Windows::Forms::Button());
-			this->button29 = (gcnew System::Windows::Forms::Button());
-			this->button30 = (gcnew System::Windows::Forms::Button());
-			this->button31 = (gcnew System::Windows::Forms::Button());
-			this->button32 = (gcnew System::Windows::Forms::Button());
-			this->button33 = (gcnew System::Windows::Forms::Button());
-			this->button34 = (gcnew System::Windows::Forms::Button());
-			this->button35 = (gcnew System::Windows::Forms::Button());
-			this->button36 = (gcnew System::Windows::Forms::Button());
-			this->button37 = (gcnew System::Windows::Forms::Button());
-			this->button38 = (gcnew System::Windows::Forms::Button());
-			this->button39 = (gcnew System::Windows::Forms::Button());
+			this->btn_op_pi = (gcnew System::Windows::Forms::Button());
+			this->btn_op_sinh = (gcnew System::Windows::Forms::Button());
+			this->btn_op_cosh = (gcnew System::Windows::Forms::Button());
+			this->btn_op_tanh = (gcnew System::Windows::Forms::Button());
+			this->btn_op_exp = (gcnew System::Windows::Forms::Button());
+			this->btn_op_log = (gcnew System::Windows::Forms::Button());
+			this->btn_op_sin = (gcnew System::Windows::Forms::Button());
+			this->btn_op_cos = (gcnew System::Windows::Forms::Button());
+			this->btn_op_tan = (gcnew System::Windows::Forms::Button());
+			this->btn_op_mod = (gcnew System::Windows::Forms::Button());
+			this->btn_op_sqrt = (gcnew System::Windows::Forms::Button());
+			this->btn_op_dec = (gcnew System::Windows::Forms::Button());
+			this->btn_op_bin = (gcnew System::Windows::Forms::Button());
+			this->btn_op_hex = (gcnew System::Windows::Forms::Button());
+			this->btn_op_oct = (gcnew System::Windows::Forms::Button());
+			this->btn_op_x_base2 = (gcnew System::Windows::Forms::Button());
+			this->btn_op_x_base3 = (gcnew System::Windows::Forms::Button());
+			this->btn_op_one_divide_x = (gcnew System::Windows::Forms::Button());
+			this->btn_op_in_x = (gcnew System::Windows::Forms::Button());
+			this->btn_op_percent = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->lbl_operator = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -178,9 +226,9 @@ namespace CLR_Calculator {
 			// 
 			// fileToolStripMenuItem
 			// 
-			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				this->standardToolStripMenuItem,
-					this->scientificToolStripMenuItem, this->historyToolStripMenuItem, this->exitToolStripMenuItem
+					this->scientificToolStripMenuItem, this->historyToolStripMenuItem, this->temperatureToolStripMenuItem, this->exitToolStripMenuItem
 			});
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
 			this->fileToolStripMenuItem->Size = System::Drawing::Size(37, 20);
@@ -189,27 +237,34 @@ namespace CLR_Calculator {
 			// standardToolStripMenuItem
 			// 
 			this->standardToolStripMenuItem->Name = L"standardToolStripMenuItem";
-			this->standardToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->standardToolStripMenuItem->Size = System::Drawing::Size(141, 22);
 			this->standardToolStripMenuItem->Text = L"Standard";
 			this->standardToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::standardToolStripMenuItem_Click);
 			// 
 			// scientificToolStripMenuItem
 			// 
 			this->scientificToolStripMenuItem->Name = L"scientificToolStripMenuItem";
-			this->scientificToolStripMenuItem->Size = System::Drawing::Size(122, 22);
+			this->scientificToolStripMenuItem->Size = System::Drawing::Size(141, 22);
 			this->scientificToolStripMenuItem->Text = L"Scientific";
 			this->scientificToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::scientificToolStripMenuItem_Click);
 			// 
 			// historyToolStripMenuItem
 			// 
 			this->historyToolStripMenuItem->Name = L"historyToolStripMenuItem";
-			this->historyToolStripMenuItem->Size = System::Drawing::Size(122, 22);
+			this->historyToolStripMenuItem->Size = System::Drawing::Size(141, 22);
 			this->historyToolStripMenuItem->Text = L"History";
+			// 
+			// temperatureToolStripMenuItem
+			// 
+			this->temperatureToolStripMenuItem->Name = L"temperatureToolStripMenuItem";
+			this->temperatureToolStripMenuItem->Size = System::Drawing::Size(141, 22);
+			this->temperatureToolStripMenuItem->Text = L"Temperature";
+			this->temperatureToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::temperatureToolStripMenuItem_Click);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
-			this->exitToolStripMenuItem->Size = System::Drawing::Size(122, 22);
+			this->exitToolStripMenuItem->Size = System::Drawing::Size(141, 22);
 			this->exitToolStripMenuItem->Text = L"Exit";
 			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::exitToolStripMenuItem_Click);
 			// 
@@ -235,27 +290,28 @@ namespace CLR_Calculator {
 			this->txt_display->TabIndex = 1;
 			this->txt_display->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			// 
-			// btn_7
+			// btn_erase
 			// 
-			this->btn_7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btn_7->Location = System::Drawing::Point(12, 80);
-			this->btn_7->Name = L"btn_7";
-			this->btn_7->Size = System::Drawing::Size(65, 65);
-			this->btn_7->TabIndex = 2;
-			this->btn_7->Text = L"7";
-			this->btn_7->UseVisualStyleBackColor = true;
+			this->btn_erase->Font = (gcnew System::Drawing::Font(L"Wingdings", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(2)));
+			this->btn_erase->Location = System::Drawing::Point(12, 80);
+			this->btn_erase->Name = L"btn_erase";
+			this->btn_erase->Size = System::Drawing::Size(65, 65);
+			this->btn_erase->TabIndex = 2;
+			this->btn_erase->Text = L"";
+			this->btn_erase->UseVisualStyleBackColor = true;
 			// 
-			// button1
+			// btn_clear_everything
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(83, 80);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(65, 65);
-			this->button1->TabIndex = 2;
-			this->button1->Text = L"CE";
-			this->button1->UseVisualStyleBackColor = true;
+			this->btn_clear_everything->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->btn_clear_everything->Location = System::Drawing::Point(83, 80);
+			this->btn_clear_everything->Name = L"btn_clear_everything";
+			this->btn_clear_everything->Size = System::Drawing::Size(65, 65);
+			this->btn_clear_everything->TabIndex = 2;
+			this->btn_clear_everything->Text = L"CE";
+			this->btn_clear_everything->UseVisualStyleBackColor = true;
+			this->btn_clear_everything->Click += gcnew System::EventHandler(this, &MainWindow::btn_clear_Click);
 			// 
 			// btn_clear
 			// 
@@ -267,50 +323,54 @@ namespace CLR_Calculator {
 			this->btn_clear->TabIndex = 2;
 			this->btn_clear->Text = L"C";
 			this->btn_clear->UseVisualStyleBackColor = true;
+			this->btn_clear->Click += gcnew System::EventHandler(this, &MainWindow::btn_clear_Click);
 			// 
 			// btn_op_negative
 			// 
-			this->btn_op_negative->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_negative->Font = (gcnew System::Drawing::Font(L"Calibri", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btn_op_negative->Location = System::Drawing::Point(225, 80);
 			this->btn_op_negative->Name = L"btn_op_negative";
 			this->btn_op_negative->Size = System::Drawing::Size(65, 65);
 			this->btn_op_negative->TabIndex = 2;
-			this->btn_op_negative->Text = L"+-";
+			this->btn_op_negative->Text = L"±";
 			this->btn_op_negative->UseVisualStyleBackColor = true;
 			// 
-			// button4
+			// btn_seven
 			// 
-			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_seven->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button4->Location = System::Drawing::Point(12, 151);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(65, 65);
-			this->button4->TabIndex = 2;
-			this->button4->Text = L"7";
-			this->button4->UseVisualStyleBackColor = true;
+			this->btn_seven->Location = System::Drawing::Point(12, 151);
+			this->btn_seven->Name = L"btn_seven";
+			this->btn_seven->Size = System::Drawing::Size(65, 65);
+			this->btn_seven->TabIndex = 2;
+			this->btn_seven->Text = L"7";
+			this->btn_seven->UseVisualStyleBackColor = true;
+			this->btn_seven->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
 			// 
-			// button5
+			// btn_eight
 			// 
-			this->button5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_eight->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button5->Location = System::Drawing::Point(83, 151);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(65, 65);
-			this->button5->TabIndex = 2;
-			this->button5->Text = L"8";
-			this->button5->UseVisualStyleBackColor = true;
+			this->btn_eight->Location = System::Drawing::Point(83, 151);
+			this->btn_eight->Name = L"btn_eight";
+			this->btn_eight->Size = System::Drawing::Size(65, 65);
+			this->btn_eight->TabIndex = 2;
+			this->btn_eight->Text = L"8";
+			this->btn_eight->UseVisualStyleBackColor = true;
+			this->btn_eight->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
 			// 
-			// button6
+			// btn_nine
 			// 
-			this->button6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_nine->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button6->Location = System::Drawing::Point(154, 151);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(65, 65);
-			this->button6->TabIndex = 2;
-			this->button6->Text = L"9";
-			this->button6->UseVisualStyleBackColor = true;
+			this->btn_nine->Location = System::Drawing::Point(154, 151);
+			this->btn_nine->Name = L"btn_nine";
+			this->btn_nine->Size = System::Drawing::Size(65, 65);
+			this->btn_nine->TabIndex = 2;
+			this->btn_nine->Text = L"9";
+			this->btn_nine->UseVisualStyleBackColor = true;
+			this->btn_nine->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
 			// 
 			// btn_op_pluss
 			// 
@@ -322,39 +382,43 @@ namespace CLR_Calculator {
 			this->btn_op_pluss->TabIndex = 2;
 			this->btn_op_pluss->Text = L"+";
 			this->btn_op_pluss->UseVisualStyleBackColor = true;
+			this->btn_op_pluss->Click += gcnew System::EventHandler(this, &MainWindow::btn_arithmetic_op);
 			// 
-			// button8
+			// btn_four
 			// 
-			this->button8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_four->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button8->Location = System::Drawing::Point(12, 222);
-			this->button8->Name = L"button8";
-			this->button8->Size = System::Drawing::Size(65, 65);
-			this->button8->TabIndex = 2;
-			this->button8->Text = L"4";
-			this->button8->UseVisualStyleBackColor = true;
+			this->btn_four->Location = System::Drawing::Point(12, 222);
+			this->btn_four->Name = L"btn_four";
+			this->btn_four->Size = System::Drawing::Size(65, 65);
+			this->btn_four->TabIndex = 2;
+			this->btn_four->Text = L"4";
+			this->btn_four->UseVisualStyleBackColor = true;
+			this->btn_four->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
 			// 
-			// button9
+			// btn_five
 			// 
-			this->button9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_five->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button9->Location = System::Drawing::Point(83, 222);
-			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(65, 65);
-			this->button9->TabIndex = 2;
-			this->button9->Text = L"5";
-			this->button9->UseVisualStyleBackColor = true;
+			this->btn_five->Location = System::Drawing::Point(83, 222);
+			this->btn_five->Name = L"btn_five";
+			this->btn_five->Size = System::Drawing::Size(65, 65);
+			this->btn_five->TabIndex = 2;
+			this->btn_five->Text = L"5";
+			this->btn_five->UseVisualStyleBackColor = true;
+			this->btn_five->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
 			// 
-			// button10
+			// btn_six
 			// 
-			this->button10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_six->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button10->Location = System::Drawing::Point(154, 222);
-			this->button10->Name = L"button10";
-			this->button10->Size = System::Drawing::Size(65, 65);
-			this->button10->TabIndex = 2;
-			this->button10->Text = L"6";
-			this->button10->UseVisualStyleBackColor = true;
+			this->btn_six->Location = System::Drawing::Point(154, 222);
+			this->btn_six->Name = L"btn_six";
+			this->btn_six->Size = System::Drawing::Size(65, 65);
+			this->btn_six->TabIndex = 2;
+			this->btn_six->Text = L"6";
+			this->btn_six->UseVisualStyleBackColor = true;
+			this->btn_six->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
 			// 
 			// btn_op_minus
 			// 
@@ -366,39 +430,43 @@ namespace CLR_Calculator {
 			this->btn_op_minus->TabIndex = 2;
 			this->btn_op_minus->Text = L"-";
 			this->btn_op_minus->UseVisualStyleBackColor = true;
+			this->btn_op_minus->Click += gcnew System::EventHandler(this, &MainWindow::btn_arithmetic_op);
 			// 
-			// button12
+			// btn_one
 			// 
-			this->button12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_one->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button12->Location = System::Drawing::Point(12, 293);
-			this->button12->Name = L"button12";
-			this->button12->Size = System::Drawing::Size(65, 65);
-			this->button12->TabIndex = 2;
-			this->button12->Text = L"1";
-			this->button12->UseVisualStyleBackColor = true;
+			this->btn_one->Location = System::Drawing::Point(12, 293);
+			this->btn_one->Name = L"btn_one";
+			this->btn_one->Size = System::Drawing::Size(65, 65);
+			this->btn_one->TabIndex = 2;
+			this->btn_one->Text = L"1";
+			this->btn_one->UseVisualStyleBackColor = true;
+			this->btn_one->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
 			// 
-			// button13
+			// btn_two
 			// 
-			this->button13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_two->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button13->Location = System::Drawing::Point(83, 293);
-			this->button13->Name = L"button13";
-			this->button13->Size = System::Drawing::Size(65, 65);
-			this->button13->TabIndex = 2;
-			this->button13->Text = L"2";
-			this->button13->UseVisualStyleBackColor = true;
+			this->btn_two->Location = System::Drawing::Point(83, 293);
+			this->btn_two->Name = L"btn_two";
+			this->btn_two->Size = System::Drawing::Size(65, 65);
+			this->btn_two->TabIndex = 2;
+			this->btn_two->Text = L"2";
+			this->btn_two->UseVisualStyleBackColor = true;
+			this->btn_two->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
 			// 
-			// button14
+			// btn_three
 			// 
-			this->button14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_three->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button14->Location = System::Drawing::Point(154, 293);
-			this->button14->Name = L"button14";
-			this->button14->Size = System::Drawing::Size(65, 65);
-			this->button14->TabIndex = 2;
-			this->button14->Text = L"3";
-			this->button14->UseVisualStyleBackColor = true;
+			this->btn_three->Location = System::Drawing::Point(154, 293);
+			this->btn_three->Name = L"btn_three";
+			this->btn_three->Size = System::Drawing::Size(65, 65);
+			this->btn_three->TabIndex = 2;
+			this->btn_three->Text = L"3";
+			this->btn_three->UseVisualStyleBackColor = true;
+			this->btn_three->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
 			// 
 			// btn_op_multiply
 			// 
@@ -410,6 +478,7 @@ namespace CLR_Calculator {
 			this->btn_op_multiply->TabIndex = 2;
 			this->btn_op_multiply->Text = L"*";
 			this->btn_op_multiply->UseVisualStyleBackColor = true;
+			this->btn_op_multiply->Click += gcnew System::EventHandler(this, &MainWindow::btn_arithmetic_op);
 			// 
 			// btn_0
 			// 
@@ -421,6 +490,7 @@ namespace CLR_Calculator {
 			this->btn_0->TabIndex = 2;
 			this->btn_0->Text = L"0";
 			this->btn_0->UseVisualStyleBackColor = true;
+			this->btn_0->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
 			// 
 			// btn_sign_comma
 			// 
@@ -432,6 +502,7 @@ namespace CLR_Calculator {
 			this->btn_sign_comma->TabIndex = 2;
 			this->btn_sign_comma->Text = L",";
 			this->btn_sign_comma->UseVisualStyleBackColor = true;
+			this->btn_sign_comma->Click += gcnew System::EventHandler(this, &MainWindow::btn_sign_comma_Click);
 			// 
 			// btn_op_equals
 			// 
@@ -454,226 +525,227 @@ namespace CLR_Calculator {
 			this->btn_op_divide->TabIndex = 2;
 			this->btn_op_divide->Text = L"/";
 			this->btn_op_divide->UseVisualStyleBackColor = true;
+			this->btn_op_divide->Click += gcnew System::EventHandler(this, &MainWindow::btn_arithmetic_op);
 			// 
-			// button20
+			// btn_op_pi
 			// 
-			this->button20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_pi->Font = (gcnew System::Drawing::Font(L"Calibri", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button20->Location = System::Drawing::Point(325, 80);
-			this->button20->Name = L"button20";
-			this->button20->Size = System::Drawing::Size(65, 65);
-			this->button20->TabIndex = 2;
-			this->button20->Text = L"7";
-			this->button20->UseVisualStyleBackColor = true;
+			this->btn_op_pi->Location = System::Drawing::Point(325, 80);
+			this->btn_op_pi->Name = L"btn_op_pi";
+			this->btn_op_pi->Size = System::Drawing::Size(65, 65);
+			this->btn_op_pi->TabIndex = 2;
+			this->btn_op_pi->Text = L"π";
+			this->btn_op_pi->UseVisualStyleBackColor = true;
 			// 
-			// button21
+			// btn_op_sinh
 			// 
-			this->button21->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_sinh->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button21->Location = System::Drawing::Point(325, 151);
-			this->button21->Name = L"button21";
-			this->button21->Size = System::Drawing::Size(65, 65);
-			this->button21->TabIndex = 2;
-			this->button21->Text = L"7";
-			this->button21->UseVisualStyleBackColor = true;
+			this->btn_op_sinh->Location = System::Drawing::Point(325, 151);
+			this->btn_op_sinh->Name = L"btn_op_sinh";
+			this->btn_op_sinh->Size = System::Drawing::Size(65, 65);
+			this->btn_op_sinh->TabIndex = 2;
+			this->btn_op_sinh->Text = L"Sinh";
+			this->btn_op_sinh->UseVisualStyleBackColor = true;
 			// 
-			// button22
+			// btn_op_cosh
 			// 
-			this->button22->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_cosh->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button22->Location = System::Drawing::Point(325, 222);
-			this->button22->Name = L"button22";
-			this->button22->Size = System::Drawing::Size(65, 65);
-			this->button22->TabIndex = 2;
-			this->button22->Text = L"7";
-			this->button22->UseVisualStyleBackColor = true;
+			this->btn_op_cosh->Location = System::Drawing::Point(325, 222);
+			this->btn_op_cosh->Name = L"btn_op_cosh";
+			this->btn_op_cosh->Size = System::Drawing::Size(65, 65);
+			this->btn_op_cosh->TabIndex = 2;
+			this->btn_op_cosh->Text = L"Cosh";
+			this->btn_op_cosh->UseVisualStyleBackColor = true;
 			// 
-			// button23
+			// btn_op_tanh
 			// 
-			this->button23->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_tanh->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button23->Location = System::Drawing::Point(325, 293);
-			this->button23->Name = L"button23";
-			this->button23->Size = System::Drawing::Size(65, 65);
-			this->button23->TabIndex = 2;
-			this->button23->Text = L"7";
-			this->button23->UseVisualStyleBackColor = true;
+			this->btn_op_tanh->Location = System::Drawing::Point(325, 293);
+			this->btn_op_tanh->Name = L"btn_op_tanh";
+			this->btn_op_tanh->Size = System::Drawing::Size(65, 65);
+			this->btn_op_tanh->TabIndex = 2;
+			this->btn_op_tanh->Text = L"Tanh";
+			this->btn_op_tanh->UseVisualStyleBackColor = true;
 			// 
-			// button24
+			// btn_op_exp
 			// 
-			this->button24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_exp->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button24->Location = System::Drawing::Point(325, 364);
-			this->button24->Name = L"button24";
-			this->button24->Size = System::Drawing::Size(65, 65);
-			this->button24->TabIndex = 2;
-			this->button24->Text = L"7";
-			this->button24->UseVisualStyleBackColor = true;
+			this->btn_op_exp->Location = System::Drawing::Point(325, 364);
+			this->btn_op_exp->Name = L"btn_op_exp";
+			this->btn_op_exp->Size = System::Drawing::Size(65, 65);
+			this->btn_op_exp->TabIndex = 2;
+			this->btn_op_exp->Text = L"Exp";
+			this->btn_op_exp->UseVisualStyleBackColor = true;
 			// 
-			// button25
+			// btn_op_log
 			// 
-			this->button25->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_log->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(161)));
+			this->btn_op_log->Location = System::Drawing::Point(396, 80);
+			this->btn_op_log->Name = L"btn_op_log";
+			this->btn_op_log->Size = System::Drawing::Size(65, 65);
+			this->btn_op_log->TabIndex = 2;
+			this->btn_op_log->Text = L"Log";
+			this->btn_op_log->UseVisualStyleBackColor = true;
+			// 
+			// btn_op_sin
+			// 
+			this->btn_op_sin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button25->Location = System::Drawing::Point(396, 80);
-			this->button25->Name = L"button25";
-			this->button25->Size = System::Drawing::Size(65, 65);
-			this->button25->TabIndex = 2;
-			this->button25->Text = L"7";
-			this->button25->UseVisualStyleBackColor = true;
+			this->btn_op_sin->Location = System::Drawing::Point(396, 151);
+			this->btn_op_sin->Name = L"btn_op_sin";
+			this->btn_op_sin->Size = System::Drawing::Size(65, 65);
+			this->btn_op_sin->TabIndex = 2;
+			this->btn_op_sin->Text = L"Sin";
+			this->btn_op_sin->UseVisualStyleBackColor = true;
 			// 
-			// button26
+			// btn_op_cos
 			// 
-			this->button26->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_cos->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button26->Location = System::Drawing::Point(396, 151);
-			this->button26->Name = L"button26";
-			this->button26->Size = System::Drawing::Size(65, 65);
-			this->button26->TabIndex = 2;
-			this->button26->Text = L"7";
-			this->button26->UseVisualStyleBackColor = true;
+			this->btn_op_cos->Location = System::Drawing::Point(396, 222);
+			this->btn_op_cos->Name = L"btn_op_cos";
+			this->btn_op_cos->Size = System::Drawing::Size(65, 65);
+			this->btn_op_cos->TabIndex = 2;
+			this->btn_op_cos->Text = L"Cos";
+			this->btn_op_cos->UseVisualStyleBackColor = true;
 			// 
-			// button27
+			// btn_op_tan
 			// 
-			this->button27->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_tan->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button27->Location = System::Drawing::Point(396, 222);
-			this->button27->Name = L"button27";
-			this->button27->Size = System::Drawing::Size(65, 65);
-			this->button27->TabIndex = 2;
-			this->button27->Text = L"7";
-			this->button27->UseVisualStyleBackColor = true;
+			this->btn_op_tan->Location = System::Drawing::Point(396, 293);
+			this->btn_op_tan->Name = L"btn_op_tan";
+			this->btn_op_tan->Size = System::Drawing::Size(65, 65);
+			this->btn_op_tan->TabIndex = 2;
+			this->btn_op_tan->Text = L"Tan";
+			this->btn_op_tan->UseVisualStyleBackColor = true;
 			// 
-			// button28
+			// btn_op_mod
 			// 
-			this->button28->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_mod->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button28->Location = System::Drawing::Point(396, 293);
-			this->button28->Name = L"button28";
-			this->button28->Size = System::Drawing::Size(65, 65);
-			this->button28->TabIndex = 2;
-			this->button28->Text = L"7";
-			this->button28->UseVisualStyleBackColor = true;
+			this->btn_op_mod->Location = System::Drawing::Point(396, 364);
+			this->btn_op_mod->Name = L"btn_op_mod";
+			this->btn_op_mod->Size = System::Drawing::Size(65, 65);
+			this->btn_op_mod->TabIndex = 2;
+			this->btn_op_mod->Text = L"Mod";
+			this->btn_op_mod->UseVisualStyleBackColor = true;
 			// 
-			// button29
+			// btn_op_sqrt
 			// 
-			this->button29->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_sqrt->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button29->Location = System::Drawing::Point(396, 364);
-			this->button29->Name = L"button29";
-			this->button29->Size = System::Drawing::Size(65, 65);
-			this->button29->TabIndex = 2;
-			this->button29->Text = L"7";
-			this->button29->UseVisualStyleBackColor = true;
+			this->btn_op_sqrt->Location = System::Drawing::Point(467, 80);
+			this->btn_op_sqrt->Name = L"btn_op_sqrt";
+			this->btn_op_sqrt->Size = System::Drawing::Size(65, 65);
+			this->btn_op_sqrt->TabIndex = 2;
+			this->btn_op_sqrt->Text = L"Sqrt";
+			this->btn_op_sqrt->UseVisualStyleBackColor = true;
 			// 
-			// button30
+			// btn_op_dec
 			// 
-			this->button30->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_dec->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button30->Location = System::Drawing::Point(467, 80);
-			this->button30->Name = L"button30";
-			this->button30->Size = System::Drawing::Size(65, 65);
-			this->button30->TabIndex = 2;
-			this->button30->Text = L"7";
-			this->button30->UseVisualStyleBackColor = true;
+			this->btn_op_dec->Location = System::Drawing::Point(467, 151);
+			this->btn_op_dec->Name = L"btn_op_dec";
+			this->btn_op_dec->Size = System::Drawing::Size(65, 65);
+			this->btn_op_dec->TabIndex = 2;
+			this->btn_op_dec->Text = L"Dec";
+			this->btn_op_dec->UseVisualStyleBackColor = true;
 			// 
-			// button31
+			// btn_op_bin
 			// 
-			this->button31->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_bin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button31->Location = System::Drawing::Point(467, 151);
-			this->button31->Name = L"button31";
-			this->button31->Size = System::Drawing::Size(65, 65);
-			this->button31->TabIndex = 2;
-			this->button31->Text = L"7";
-			this->button31->UseVisualStyleBackColor = true;
+			this->btn_op_bin->Location = System::Drawing::Point(466, 222);
+			this->btn_op_bin->Name = L"btn_op_bin";
+			this->btn_op_bin->Size = System::Drawing::Size(65, 65);
+			this->btn_op_bin->TabIndex = 2;
+			this->btn_op_bin->Text = L"Bin";
+			this->btn_op_bin->UseVisualStyleBackColor = true;
 			// 
-			// button32
+			// btn_op_hex
 			// 
-			this->button32->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_hex->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button32->Location = System::Drawing::Point(467, 222);
-			this->button32->Name = L"button32";
-			this->button32->Size = System::Drawing::Size(65, 65);
-			this->button32->TabIndex = 2;
-			this->button32->Text = L"7";
-			this->button32->UseVisualStyleBackColor = true;
+			this->btn_op_hex->Location = System::Drawing::Point(467, 293);
+			this->btn_op_hex->Name = L"btn_op_hex";
+			this->btn_op_hex->Size = System::Drawing::Size(65, 65);
+			this->btn_op_hex->TabIndex = 2;
+			this->btn_op_hex->Text = L"Hex";
+			this->btn_op_hex->UseVisualStyleBackColor = true;
 			// 
-			// button33
+			// btn_op_oct
 			// 
-			this->button33->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_oct->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button33->Location = System::Drawing::Point(467, 293);
-			this->button33->Name = L"button33";
-			this->button33->Size = System::Drawing::Size(65, 65);
-			this->button33->TabIndex = 2;
-			this->button33->Text = L"7";
-			this->button33->UseVisualStyleBackColor = true;
+			this->btn_op_oct->Location = System::Drawing::Point(467, 364);
+			this->btn_op_oct->Name = L"btn_op_oct";
+			this->btn_op_oct->Size = System::Drawing::Size(65, 65);
+			this->btn_op_oct->TabIndex = 2;
+			this->btn_op_oct->Text = L"Oct";
+			this->btn_op_oct->UseVisualStyleBackColor = true;
 			// 
-			// button34
+			// btn_op_x_base2
 			// 
-			this->button34->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_x_base2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button34->Location = System::Drawing::Point(467, 364);
-			this->button34->Name = L"button34";
-			this->button34->Size = System::Drawing::Size(65, 65);
-			this->button34->TabIndex = 2;
-			this->button34->Text = L"7";
-			this->button34->UseVisualStyleBackColor = true;
+			this->btn_op_x_base2->Location = System::Drawing::Point(538, 80);
+			this->btn_op_x_base2->Name = L"btn_op_x_base2";
+			this->btn_op_x_base2->Size = System::Drawing::Size(65, 65);
+			this->btn_op_x_base2->TabIndex = 2;
+			this->btn_op_x_base2->Text = L"x^2";
+			this->btn_op_x_base2->UseVisualStyleBackColor = true;
 			// 
-			// button35
+			// btn_op_x_base3
 			// 
-			this->button35->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_x_base3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button35->Location = System::Drawing::Point(538, 80);
-			this->button35->Name = L"button35";
-			this->button35->Size = System::Drawing::Size(65, 65);
-			this->button35->TabIndex = 2;
-			this->button35->Text = L"7";
-			this->button35->UseVisualStyleBackColor = true;
+			this->btn_op_x_base3->Location = System::Drawing::Point(538, 151);
+			this->btn_op_x_base3->Name = L"btn_op_x_base3";
+			this->btn_op_x_base3->Size = System::Drawing::Size(65, 65);
+			this->btn_op_x_base3->TabIndex = 2;
+			this->btn_op_x_base3->Text = L"x^3";
+			this->btn_op_x_base3->UseVisualStyleBackColor = true;
 			// 
-			// button36
+			// btn_op_one_divide_x
 			// 
-			this->button36->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_one_divide_x->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->btn_op_one_divide_x->Location = System::Drawing::Point(538, 222);
+			this->btn_op_one_divide_x->Name = L"btn_op_one_divide_x";
+			this->btn_op_one_divide_x->Size = System::Drawing::Size(65, 65);
+			this->btn_op_one_divide_x->TabIndex = 2;
+			this->btn_op_one_divide_x->Text = L"1/x";
+			this->btn_op_one_divide_x->UseVisualStyleBackColor = true;
+			// 
+			// btn_op_in_x
+			// 
+			this->btn_op_in_x->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button36->Location = System::Drawing::Point(538, 151);
-			this->button36->Name = L"button36";
-			this->button36->Size = System::Drawing::Size(65, 65);
-			this->button36->TabIndex = 2;
-			this->button36->Text = L"7";
-			this->button36->UseVisualStyleBackColor = true;
+			this->btn_op_in_x->Location = System::Drawing::Point(538, 293);
+			this->btn_op_in_x->Name = L"btn_op_in_x";
+			this->btn_op_in_x->Size = System::Drawing::Size(65, 65);
+			this->btn_op_in_x->TabIndex = 2;
+			this->btn_op_in_x->Text = L"In x";
+			this->btn_op_in_x->UseVisualStyleBackColor = true;
 			// 
-			// button37
+			// btn_op_percent
 			// 
-			this->button37->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_percent->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button37->Location = System::Drawing::Point(538, 222);
-			this->button37->Name = L"button37";
-			this->button37->Size = System::Drawing::Size(65, 65);
-			this->button37->TabIndex = 2;
-			this->button37->Text = L"7";
-			this->button37->UseVisualStyleBackColor = true;
-			// 
-			// button38
-			// 
-			this->button38->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button38->Location = System::Drawing::Point(538, 293);
-			this->button38->Name = L"button38";
-			this->button38->Size = System::Drawing::Size(65, 65);
-			this->button38->TabIndex = 2;
-			this->button38->Text = L"7";
-			this->button38->UseVisualStyleBackColor = true;
-			// 
-			// button39
-			// 
-			this->button39->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button39->Location = System::Drawing::Point(538, 364);
-			this->button39->Name = L"button39";
-			this->button39->Size = System::Drawing::Size(65, 65);
-			this->button39->TabIndex = 2;
-			this->button39->Text = L"7";
-			this->button39->UseVisualStyleBackColor = true;
+			this->btn_op_percent->Location = System::Drawing::Point(538, 364);
+			this->btn_op_percent->Name = L"btn_op_percent";
+			this->btn_op_percent->Size = System::Drawing::Size(65, 65);
+			this->btn_op_percent->TabIndex = 2;
+			this->btn_op_percent->Text = L"%";
+			this->btn_op_percent->UseVisualStyleBackColor = true;
 			// 
 			// panel1
 			// 
@@ -682,52 +754,64 @@ namespace CLR_Calculator {
 			this->panel1->Size = System::Drawing::Size(540, 410);
 			this->panel1->TabIndex = 3;
 			// 
+			// lbl_operator
+			// 
+			this->lbl_operator->BackColor = System::Drawing::Color::White;
+			this->lbl_operator->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_operator->Location = System::Drawing::Point(13, 39);
+			this->lbl_operator->Name = L"lbl_operator";
+			this->lbl_operator->Size = System::Drawing::Size(25, 25);
+			this->lbl_operator->TabIndex = 4;
+			this->lbl_operator->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
 			// MainWindow
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1164, 441);
+			this->Controls->Add(this->lbl_operator);
 			this->Controls->Add(this->panel1);
-			this->Controls->Add(this->button39);
+			this->Controls->Add(this->btn_op_percent);
 			this->Controls->Add(this->btn_op_divide);
-			this->Controls->Add(this->button38);
+			this->Controls->Add(this->btn_op_in_x);
 			this->Controls->Add(this->btn_op_multiply);
-			this->Controls->Add(this->button37);
-			this->Controls->Add(this->button36);
+			this->Controls->Add(this->btn_op_one_divide_x);
+			this->Controls->Add(this->btn_op_x_base3);
 			this->Controls->Add(this->btn_op_minus);
-			this->Controls->Add(this->button35);
+			this->Controls->Add(this->btn_op_x_base2);
 			this->Controls->Add(this->btn_op_pluss);
-			this->Controls->Add(this->button34);
+			this->Controls->Add(this->btn_op_oct);
 			this->Controls->Add(this->btn_op_negative);
-			this->Controls->Add(this->button33);
+			this->Controls->Add(this->btn_op_hex);
 			this->Controls->Add(this->btn_op_equals);
-			this->Controls->Add(this->button32);
-			this->Controls->Add(this->button14);
-			this->Controls->Add(this->button31);
-			this->Controls->Add(this->button10);
-			this->Controls->Add(this->button30);
-			this->Controls->Add(this->button6);
-			this->Controls->Add(this->button29);
+			this->Controls->Add(this->btn_op_bin);
+			this->Controls->Add(this->btn_three);
+			this->Controls->Add(this->btn_op_dec);
+			this->Controls->Add(this->btn_six);
+			this->Controls->Add(this->btn_op_sqrt);
+			this->Controls->Add(this->btn_nine);
+			this->Controls->Add(this->btn_op_mod);
 			this->Controls->Add(this->btn_clear);
-			this->Controls->Add(this->button28);
+			this->Controls->Add(this->btn_op_tan);
 			this->Controls->Add(this->btn_sign_comma);
-			this->Controls->Add(this->button27);
-			this->Controls->Add(this->button13);
-			this->Controls->Add(this->button26);
-			this->Controls->Add(this->button9);
-			this->Controls->Add(this->button25);
-			this->Controls->Add(this->button5);
-			this->Controls->Add(this->button24);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->button23);
+			this->Controls->Add(this->btn_op_cos);
+			this->Controls->Add(this->btn_two);
+			this->Controls->Add(this->btn_op_sin);
+			this->Controls->Add(this->btn_five);
+			this->Controls->Add(this->btn_op_log);
+			this->Controls->Add(this->btn_eight);
+			this->Controls->Add(this->btn_op_exp);
+			this->Controls->Add(this->btn_clear_everything);
+			this->Controls->Add(this->btn_op_tanh);
 			this->Controls->Add(this->btn_0);
-			this->Controls->Add(this->button22);
-			this->Controls->Add(this->button12);
-			this->Controls->Add(this->button21);
-			this->Controls->Add(this->button8);
-			this->Controls->Add(this->button20);
-			this->Controls->Add(this->button4);
-			this->Controls->Add(this->btn_7);
+			this->Controls->Add(this->btn_op_cosh);
+			this->Controls->Add(this->btn_one);
+			this->Controls->Add(this->btn_op_sinh);
+			this->Controls->Add(this->btn_four);
+			this->Controls->Add(this->btn_op_pi);
+			this->Controls->Add(this->btn_seven);
+			this->Controls->Add(this->btn_erase);
 			this->Controls->Add(this->txt_display);
 			this->Controls->Add(this->menuStrip1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
@@ -754,6 +838,8 @@ namespace CLR_Calculator {
 
 	private: System::Void MainWindow_Load(System::Object^  sender, System::EventArgs^  e) 
 	{
+		txt_display->Text = "0";
+		lbl_operator->Text = "";
 		standardToolStripMenuItem_Click(sender, e);
 		historyToolStripMenuItem->Visible = false;
 	}
@@ -772,11 +858,49 @@ namespace CLR_Calculator {
 	{
 		//Reduce size of window to hide remains of application
 		MainWindow::Width = 640;
-		txt_display->Width = 591;
 	}
 	private: System::Void exitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
 		Application::Exit();
 	}
-	};
+	private: System::Void temperatureToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		MainWindow::Width = 1180;
+	}
+
+	private: System::Void btn_number_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		Button^ numbers = safe_cast<Button^>(sender);
+
+		if (txt_display->Text == "0")
+		{
+			txt_display->Text = numbers->Text;
+		}
+		else
+		{
+			txt_display->Text = txt_display->Text + numbers->Text;
+		}
+	}
+	private: System::Void btn_clear_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		txt_display->Clear();
+		txt_display->Text = "0";
+		lbl_operator->Text = "0";
+	}
+	private: System::Void btn_sign_comma_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		if (!txt_display->Text->Contains(","))
+		{
+			txt_display->Text = txt_display->Text + ",";
+		}
+	}
+
+	private: System::Void btn_arithmetic_op(System::Object^  sender, System::EventArgs^  e) 
+	{
+		Button^ op = safe_cast<Button^>(sender);
+		iFirstNum = Double::Parse(txt_display->Text);
+		txt_display->Text = "";
+		iOperator = op->Text;
+	}
+};
 }
