@@ -1,7 +1,7 @@
 ﻿#pragma once
 
-namespace CLR_Calculator {
-
+namespace CLR_Calculator 
+{
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -37,127 +37,60 @@ namespace CLR_Calculator {
 
 	protected:
 
-
-
-
-
-
-
-	private: System::Windows::Forms::TextBox^  txt_display;
-	private: System::Windows::Forms::Button^  btn_erase;
-	private: System::Windows::Forms::Button^  btn_clear_everything;
-	private: System::Windows::Forms::Button^  btn_clear;
-
-
-
-
-
-
-
-
-
-
-	private: System::Windows::Forms::Button^  btn_op_negative;
-	private: System::Windows::Forms::Button^  btn_seven;
-	private: System::Windows::Forms::Button^  btn_eight;
-	private: System::Windows::Forms::Button^  btn_nine;
-
-
-
-
-	private: System::Windows::Forms::Button^  btn_op_pluss;
-	private: System::Windows::Forms::Button^  btn_four;
-	private: System::Windows::Forms::Button^  btn_five;
-	private: System::Windows::Forms::Button^  btn_six;
-
-
-
-
-	private: System::Windows::Forms::Button^  btn_op_minus;
-	private: System::Windows::Forms::Button^  btn_one;
-	private: System::Windows::Forms::Button^  btn_two;
-	private: System::Windows::Forms::Button^  btn_three;
-
-
-
-
-	private: System::Windows::Forms::Button^  btn_op_multiply;
-
-	private: System::Windows::Forms::Button^  btn_0;
-	private: System::Windows::Forms::Button^  btn_sign_comma;
-	private: System::Windows::Forms::Button^  btn_op_equals;
-	private: System::Windows::Forms::Button^  btn_op_divide;
-	private: System::Windows::Forms::Button^  btn_op_pi;
-
-
-
-
-
-	private: System::Windows::Forms::Button^  btn_op_sinh;
-
-	private: System::Windows::Forms::Button^  btn_op_cosh;
-
-	private: System::Windows::Forms::Button^  btn_op_tanh;
-
-	private: System::Windows::Forms::Button^  btn_op_exp;
-	private: System::Windows::Forms::Button^  btn_op_log;
-
-
-
-	private: System::Windows::Forms::Button^  btn_op_sin;
-
-	private: System::Windows::Forms::Button^  btn_op_cos;
-
-	private: System::Windows::Forms::Button^  btn_op_tan;
-
-	private: System::Windows::Forms::Button^  btn_op_mod;
-	private: System::Windows::Forms::Button^  btn_op_sqrt;
-
-
-	private: System::Windows::Forms::Button^  btn_op_dec;
-
-	private: System::Windows::Forms::Button^  btn_op_bin;
-
-	private: System::Windows::Forms::Button^  btn_op_hex;
-
-	private: System::Windows::Forms::Button^  btn_op_oct;
-private: System::Windows::Forms::Button^  btn_op_x_base2;
-
-private: System::Windows::Forms::Button^  btn_op_x_base3;
-private: System::Windows::Forms::Button^  btn_op_one_divide_x;
-private: System::Windows::Forms::Button^  btn_op_in_x;
-private: System::Windows::Forms::Button^  btn_op_percent;
-
-
-
-
-
-
-
-
-
-
-
-
-
-	private: System::Windows::Forms::Panel^  panel1;
-
-private: System::Windows::Forms::Label^  lbl_operator;
-private: System::Windows::Forms::ToolStripMenuItem^  fileToolStripMenuItem;
-private: System::Windows::Forms::ToolStripMenuItem^  standardToolStripMenuItem;
-private: System::Windows::Forms::ToolStripMenuItem^  scientificToolStripMenuItem;
-
-
-
-private: System::Windows::Forms::ToolStripMenuItem^  temperatureToolStripMenuItem;
-private: System::Windows::Forms::ToolStripMenuItem^  exitToolStripMenuItem;
-private: System::Windows::Forms::ToolStripMenuItem^  editToolStripMenuItem;
-private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
-private: System::Windows::Forms::MenuStrip^  menuStrip1;
-private: System::Windows::Forms::ListBox^  listB_history;
-private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
-
-
+	private: 
+		System::Windows::Forms::TextBox^  txt_display;
+		System::Windows::Forms::Button^  btn_backslash;
+		System::Windows::Forms::Button^  btn_clear_everything;
+		System::Windows::Forms::Button^  btn_clear;
+		System::Windows::Forms::Button^  btn_op_negative;
+		System::Windows::Forms::Button^  btn_seven;
+		System::Windows::Forms::Button^  btn_eight;
+		System::Windows::Forms::Button^  btn_nine;
+		System::Windows::Forms::Button^  btn_op_pluss;
+		System::Windows::Forms::Button^  btn_four;
+		System::Windows::Forms::Button^  btn_five;
+		System::Windows::Forms::Button^  btn_six;
+		System::Windows::Forms::Button^  btn_op_minus;
+		System::Windows::Forms::Button^  btn_one;
+		System::Windows::Forms::Button^  btn_two;
+		System::Windows::Forms::Button^  btn_three;
+		System::Windows::Forms::Button^  btn_op_multiply;
+		System::Windows::Forms::Button^  btn_0;
+		System::Windows::Forms::Button^  btn_sign_comma;
+		System::Windows::Forms::Button^  btn_op_equals;
+		System::Windows::Forms::Button^  btn_op_divide;
+		System::Windows::Forms::Button^  btn_op_pi;
+		System::Windows::Forms::Button^  btn_op_sinh;
+		System::Windows::Forms::Button^  btn_op_cosh;
+		System::Windows::Forms::Button^  btn_op_tanh;
+		System::Windows::Forms::Button^  btn_op_exp;
+		System::Windows::Forms::Button^  btn_op_log;
+		System::Windows::Forms::Button^  btn_op_sin;
+		System::Windows::Forms::Button^  btn_op_cos;
+		System::Windows::Forms::Button^  btn_op_tan;
+		System::Windows::Forms::Button^  btn_op_mod;
+		System::Windows::Forms::Button^  btn_op_sqrt;
+		System::Windows::Forms::Button^  btn_op_dec;
+		System::Windows::Forms::Button^  btn_op_bin;
+		System::Windows::Forms::Button^  btn_op_hex;
+		System::Windows::Forms::Button^  btn_op_oct;
+		System::Windows::Forms::Button^  btn_op_x_base2;
+		System::Windows::Forms::Button^  btn_op_x_base3;
+		System::Windows::Forms::Button^  btn_op_one_divide_x;
+		System::Windows::Forms::Button^  btn_op_in_x;
+		System::Windows::Forms::Button^  btn_op_percent;
+		System::Windows::Forms::Panel^  panel1;
+		System::Windows::Forms::Label^  lbl_operator;
+		System::Windows::Forms::ToolStripMenuItem^  fileToolStripMenuItem;
+		System::Windows::Forms::ToolStripMenuItem^  standardToolStripMenuItem;
+		System::Windows::Forms::ToolStripMenuItem^  scientificToolStripMenuItem;
+		System::Windows::Forms::ToolStripMenuItem^  temperatureToolStripMenuItem;
+		System::Windows::Forms::ToolStripMenuItem^  exitToolStripMenuItem;
+		System::Windows::Forms::ToolStripMenuItem^  editToolStripMenuItem;
+		System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
+		System::Windows::Forms::MenuStrip^  menuStrip1;
+		System::Windows::Forms::ListBox^  listB_history;
+		System::Windows::Forms::ToolStripMenuItem^  menu_history;
 
 	private:
 		/// <summary>
@@ -173,7 +106,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 		void InitializeComponent(void)
 		{
 			this->txt_display = (gcnew System::Windows::Forms::TextBox());
-			this->btn_erase = (gcnew System::Windows::Forms::Button());
+			this->btn_backslash = (gcnew System::Windows::Forms::Button());
 			this->btn_clear_everything = (gcnew System::Windows::Forms::Button());
 			this->btn_clear = (gcnew System::Windows::Forms::Button());
 			this->btn_op_negative = (gcnew System::Windows::Forms::Button());
@@ -218,8 +151,8 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->standardToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->scientificToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->menu_history = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->temperatureToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menu_history = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->helpToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -238,16 +171,17 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			this->txt_display->TabIndex = 1;
 			this->txt_display->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			// 
-			// btn_erase
+			// btn_backslash
 			// 
-			this->btn_erase->Font = (gcnew System::Drawing::Font(L"Wingdings", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_backslash->Font = (gcnew System::Drawing::Font(L"Wingdings", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(2)));
-			this->btn_erase->Location = System::Drawing::Point(12, 80);
-			this->btn_erase->Name = L"btn_erase";
-			this->btn_erase->Size = System::Drawing::Size(65, 65);
-			this->btn_erase->TabIndex = 2;
-			this->btn_erase->Text = L"";
-			this->btn_erase->UseVisualStyleBackColor = true;
+			this->btn_backslash->Location = System::Drawing::Point(12, 80);
+			this->btn_backslash->Name = L"btn_backslash";
+			this->btn_backslash->Size = System::Drawing::Size(65, 65);
+			this->btn_backslash->TabIndex = 2;
+			this->btn_backslash->Text = L"";
+			this->btn_backslash->UseVisualStyleBackColor = true;
+			this->btn_backslash->Click += gcnew System::EventHandler(this, &MainWindow::btn_backslash_Click);
 			// 
 			// btn_clear_everything
 			// 
@@ -487,6 +421,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			this->btn_op_pi->TabIndex = 2;
 			this->btn_op_pi->Text = L"π";
 			this->btn_op_pi->UseVisualStyleBackColor = true;
+			this->btn_op_pi->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_pi_Click);
 			// 
 			// btn_op_sinh
 			// 
@@ -498,6 +433,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			this->btn_op_sinh->TabIndex = 2;
 			this->btn_op_sinh->Text = L"Sinh";
 			this->btn_op_sinh->UseVisualStyleBackColor = true;
+			this->btn_op_sinh->Click += gcnew System::EventHandler(this, &MainWindow::on_trigonometric_op_Click);
 			// 
 			// btn_op_cosh
 			// 
@@ -509,6 +445,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			this->btn_op_cosh->TabIndex = 2;
 			this->btn_op_cosh->Text = L"Cosh";
 			this->btn_op_cosh->UseVisualStyleBackColor = true;
+			this->btn_op_cosh->Click += gcnew System::EventHandler(this, &MainWindow::on_trigonometric_op_Click);
 			// 
 			// btn_op_tanh
 			// 
@@ -520,6 +457,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			this->btn_op_tanh->TabIndex = 2;
 			this->btn_op_tanh->Text = L"Tanh";
 			this->btn_op_tanh->UseVisualStyleBackColor = true;
+			this->btn_op_tanh->Click += gcnew System::EventHandler(this, &MainWindow::on_trigonometric_op_Click);
 			// 
 			// btn_op_exp
 			// 
@@ -542,6 +480,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			this->btn_op_log->TabIndex = 2;
 			this->btn_op_log->Text = L"Log";
 			this->btn_op_log->UseVisualStyleBackColor = true;
+			this->btn_op_log->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_log_Click);
 			// 
 			// btn_op_sin
 			// 
@@ -553,6 +492,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			this->btn_op_sin->TabIndex = 2;
 			this->btn_op_sin->Text = L"Sin";
 			this->btn_op_sin->UseVisualStyleBackColor = true;
+			this->btn_op_sin->Click += gcnew System::EventHandler(this, &MainWindow::on_trigonometric_op_Click);
 			// 
 			// btn_op_cos
 			// 
@@ -564,6 +504,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			this->btn_op_cos->TabIndex = 2;
 			this->btn_op_cos->Text = L"Cos";
 			this->btn_op_cos->UseVisualStyleBackColor = true;
+			this->btn_op_cos->Click += gcnew System::EventHandler(this, &MainWindow::on_trigonometric_op_Click);
 			// 
 			// btn_op_tan
 			// 
@@ -575,6 +516,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			this->btn_op_tan->TabIndex = 2;
 			this->btn_op_tan->Text = L"Tan";
 			this->btn_op_tan->UseVisualStyleBackColor = true;
+			this->btn_op_tan->Click += gcnew System::EventHandler(this, &MainWindow::on_trigonometric_op_Click);
 			// 
 			// btn_op_mod
 			// 
@@ -597,6 +539,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			this->btn_op_sqrt->TabIndex = 2;
 			this->btn_op_sqrt->Text = L"Sqrt";
 			this->btn_op_sqrt->UseVisualStyleBackColor = true;
+			this->btn_op_sqrt->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_sqrt_Click);
 			// 
 			// btn_op_dec
 			// 
@@ -608,6 +551,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			this->btn_op_dec->TabIndex = 2;
 			this->btn_op_dec->Text = L"Dec";
 			this->btn_op_dec->UseVisualStyleBackColor = true;
+			this->btn_op_dec->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_dec_Click);
 			// 
 			// btn_op_bin
 			// 
@@ -719,7 +663,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			// 
 			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				this->standardToolStripMenuItem,
-					this->scientificToolStripMenuItem, this->menu_history, this->temperatureToolStripMenuItem, this->exitToolStripMenuItem
+					this->scientificToolStripMenuItem, this->temperatureToolStripMenuItem, this->menu_history, this->exitToolStripMenuItem
 			});
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
 			this->fileToolStripMenuItem->Size = System::Drawing::Size(37, 20);
@@ -728,35 +672,35 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			// standardToolStripMenuItem
 			// 
 			this->standardToolStripMenuItem->Name = L"standardToolStripMenuItem";
-			this->standardToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->standardToolStripMenuItem->Size = System::Drawing::Size(141, 22);
 			this->standardToolStripMenuItem->Text = L"Standard";
 			this->standardToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::standardToolStripMenuItem_Click);
 			// 
 			// scientificToolStripMenuItem
 			// 
 			this->scientificToolStripMenuItem->Name = L"scientificToolStripMenuItem";
-			this->scientificToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->scientificToolStripMenuItem->Size = System::Drawing::Size(141, 22);
 			this->scientificToolStripMenuItem->Text = L"Scientific";
 			this->scientificToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::scientificToolStripMenuItem_Click);
-			// 
-			// menu_history
-			// 
-			this->menu_history->Name = L"menu_history";
-			this->menu_history->Size = System::Drawing::Size(152, 22);
-			this->menu_history->Text = L"History";
-			this->menu_history->Click += gcnew System::EventHandler(this, &MainWindow::menu_history_Click);
 			// 
 			// temperatureToolStripMenuItem
 			// 
 			this->temperatureToolStripMenuItem->Name = L"temperatureToolStripMenuItem";
-			this->temperatureToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->temperatureToolStripMenuItem->Size = System::Drawing::Size(141, 22);
 			this->temperatureToolStripMenuItem->Text = L"Temperature";
 			this->temperatureToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::temperatureToolStripMenuItem_Click);
+			// 
+			// menu_history
+			// 
+			this->menu_history->Name = L"menu_history";
+			this->menu_history->Size = System::Drawing::Size(141, 22);
+			this->menu_history->Text = L"History";
+			this->menu_history->Click += gcnew System::EventHandler(this, &MainWindow::menu_history_Click);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
-			this->exitToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+			this->exitToolStripMenuItem->Size = System::Drawing::Size(141, 22);
 			this->exitToolStripMenuItem->Text = L"Exit";
 			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainWindow::exitToolStripMenuItem_Click);
 			// 
@@ -839,7 +783,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			this->Controls->Add(this->btn_four);
 			this->Controls->Add(this->btn_op_pi);
 			this->Controls->Add(this->btn_seven);
-			this->Controls->Add(this->btn_erase);
+			this->Controls->Add(this->btn_backslash);
 			this->Controls->Add(this->txt_display);
 			this->Controls->Add(this->menuStrip1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
@@ -863,6 +807,9 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 		String^ iOperator;
 		float iCelcius, iFehrenheit, iKelvin;
 		char iOperation;
+private:
+	double trigonometric_functions(Button^ funcOp, double value);
+	System::Void on_trigonometric_op_Click(System::Object^  sender, System::EventArgs^  e);
 
 	private: System::Void MainWindow_Load(System::Object^  sender, System::EventArgs^  e) 
 	{
@@ -876,23 +823,65 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 		//Reduce size of window to hide remains of application
 		MainWindow::Width = 320;
 		MainWindow::Height = 480;
+		standardToolStripMenuItem->Checked = true;
 
 		//Display text box size
 		txt_display->Width = 278;
+		scientificToolStripMenuItem->Checked = false;
+		temperatureToolStripMenuItem->Checked = false;
+		menu_history->Checked = false;
 	}
 
 	private: System::Void scientificToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
-		//Reduce size of window to hide remains of application
-		MainWindow::Width = 640;
+		//Hide scientific section and everything that is to the right of it
+		if (scientificToolStripMenuItem->Checked)
+		{
+			standardToolStripMenuItem_Click(sender, e);
+			scientificToolStripMenuItem->Checked = false;
+		}
+		else
+		{
+			//Show scientific section of window
+			MainWindow::Width = 640;
+			scientificToolStripMenuItem->Checked = true;
+		}
+		temperatureToolStripMenuItem->Checked = false;
 	}
+	//Set window size to include scientific and standard sections
+	private: System::Void temperatureToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		//Hide temperature section
+		if (temperatureToolStripMenuItem->Checked)
+		{
+			MainWindow::Width = 640;
+			temperatureToolStripMenuItem->Checked = false;
+		}
+		else //Show temperature section
+		{
+			MainWindow::Width = 1180;
+			temperatureToolStripMenuItem->Checked = true;
+			scientificToolStripMenuItem->Checked = true;
+		}
+	}
+
+	private: System::Void menu_history_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		if (menu_history->Checked == false)
+		{
+			menu_history->Checked = true;
+			MainWindow::Height = 620;
+		}
+		else
+		{
+			menu_history->Checked = false;
+			MainWindow::Height = 480;
+		}
+	}
+
 	private: System::Void exitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
 		Application::Exit();
-	}
-	private: System::Void temperatureToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) 
-	{
-		MainWindow::Width = 1180;
 	}
 
 	private: System::Void btn_number_Click(System::Object^  sender, System::EventArgs^  e) 
@@ -912,7 +901,7 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 	{
 		txt_display->Clear();
 		txt_display->Text = "0";
-		lbl_operator->Text = "0";
+		lbl_operator->Text = "";
 	}
 	private: System::Void btn_sign_comma_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
@@ -984,18 +973,53 @@ private: System::Windows::Forms::ToolStripMenuItem^  menu_history;
 			listB_history->Items->Add(System::Convert::ToString(lbl_operator->Text));
 		}
 	}
-	private: System::Void menu_history_Click(System::Object^  sender, System::EventArgs^  e) 
+
+	private: System::Void btn_backslash_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
-		if (menu_history->Checked == false)
+		//If input is longer than 1, remove last number
+		if (txt_display->Text->Length > 1)
 		{
-			menu_history->Checked = true;
-			MainWindow::Height = 620;
+			txt_display->Text = txt_display->Text->Remove(txt_display->Text->Length - 1, 1);
 		}
-		else
+		else //Reset input to zero if input is 1 or less
 		{
-			menu_history->Checked = false;
-			MainWindow::Height = 480;
+			txt_display->Text = "0";
 		}
+	}
+
+	//Pi button event
+	private: System::Void btn_op_pi_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		txt_display->Text = "3.14";
+	}
+
+	//Log button event
+	private: System::Void btn_op_log_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		a = Double::Parse(txt_display->Text);
+		lbl_operator->Text = "log (" + txt_display->Text + ")";
+		listB_history->Items->Add(lbl_operator->Text);
+		a = Math::Log(a);
+		txt_display->Text = ""+a;
+	}
+
+	//Square button event
+	private: System::Void btn_op_sqrt_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		a = Double::Parse(txt_display->Text);
+		a = Math::Sqrt(a);
+		listB_history->Items->Add("Sqrt("+txt_display->Text+") = "+a);
+		txt_display->Text = "" + a;
+	}
+
+	//Denary / decimal
+	private: System::Void btn_op_dec_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		Button^ op = safe_cast<Button^>(sender);
+		int a = int::Parse(txt_display->Text);
+		lbl_operator->Text = op->Text;
+		listB_history->Items->Add(op->Text + "(" + txt_display->Text + ") = " + a);
+		txt_display->Text = "" + a;
 	}
 };
 }
