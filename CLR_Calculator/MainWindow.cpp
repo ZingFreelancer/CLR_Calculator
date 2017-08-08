@@ -104,3 +104,36 @@ System::Void CLR_Calculator::MainWindow::btn_op_percent_Click(System::Object ^ s
 	listB_history->Items->Add(op->Text + "(" + txt_display->Text + ") = " + a);
 	txt_display->Text = "" + a;
 }
+
+System::Void CLR_Calculator::MainWindow::temperature_button_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	RadioButton^ op = safe_cast<RadioButton^>(sender);
+	if (op->Equals(radio_celsius_to_fahrenheit))
+		iOperation = 'C';
+	else if (op->Equals(radio_fahrenheit_to_celsius))
+		iOperation = 'F';
+	else
+		iOperation = 'K';
+}
+
+System::Void CLR_Calculator::MainWindow::btn_temp_convert_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	switch (iOperation)
+	{
+	case 'C': (float::TryParse(txt_temperature->Text, iCelcius));
+		txt_temp_result->Text = ((9 * iCelcius) / 5) + 32+"";
+		break;
+	case 'F': (float::TryParse(txt_temperature->Text, iFehrenheit));
+		txt_temp_result->Text = ((iFehrenheit - 32) * 5) / 9+ "";
+		break;
+	case 'K': (float::TryParse(txt_temperature->Text, iKelvin));
+		txt_temp_result->Text = ((9 * iKelvin) / 5) + 32 + 273.15 + "";
+		break;
+	}
+}
+
+System::Void CLR_Calculator::MainWindow::btn_temp_reset_Click(System::Object ^ sender, System::EventArgs ^ e)
+{
+	txt_temperature->Text = "0";
+	txt_temp_result->Text = "0";
+}

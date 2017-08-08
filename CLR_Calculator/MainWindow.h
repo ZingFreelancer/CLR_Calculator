@@ -74,11 +74,8 @@ namespace CLR_Calculator
 		System::Windows::Forms::Button^  btn_op_bin;
 		System::Windows::Forms::Button^  btn_op_hex;
 		System::Windows::Forms::Button^  btn_op_oct;
-	private: System::Windows::Forms::Button^  btn_op_x_base3;
-
-	private: System::Windows::Forms::Button^  btn_op_x_base2;
-
-
+		System::Windows::Forms::Button^  btn_op_x_base3;
+		System::Windows::Forms::Button^  btn_op_x_base2;
 		System::Windows::Forms::Button^  btn_op_one_divide_x;
 		System::Windows::Forms::Button^  btn_op_in_x;
 		System::Windows::Forms::Button^  btn_op_percent;
@@ -94,10 +91,16 @@ namespace CLR_Calculator
 		System::Windows::Forms::MenuStrip^  menuStrip1;
 		System::Windows::Forms::ListBox^  listB_history;
 		System::Windows::Forms::ToolStripMenuItem^  menu_history;
-	private: System::Windows::Forms::RadioButton^  radio_kelvin;
-
-	private: System::Windows::Forms::RadioButton^  radio_fahrenheit_to_celsius;
-	private: System::Windows::Forms::RadioButton^  radio_celsius_to_fahrenheit;
+		System::Windows::Forms::RadioButton^  radio_kelvin;
+		System::Windows::Forms::RadioButton^  radio_fahrenheit_to_celsius;
+		System::Windows::Forms::RadioButton^  radio_celsius_to_fahrenheit;
+		System::Windows::Forms::Button^  btn_temp_reset;
+		System::Windows::Forms::Label^  lbl_temperature_input;
+		System::Windows::Forms::Label^  lbl_temp_result;
+		System::Windows::Forms::Button^  btn_temp_convert;
+		System::Windows::Forms::TextBox^  textBox1;
+		System::Windows::Forms::TextBox^  txt_temp_result;
+		System::Windows::Forms::TextBox^  txt_temperature;
 
 	private:
 		/// <summary>
@@ -154,6 +157,16 @@ namespace CLR_Calculator
 			this->btn_op_in_x = (gcnew System::Windows::Forms::Button());
 			this->btn_op_percent = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->btn_temp_reset = (gcnew System::Windows::Forms::Button());
+			this->lbl_temperature_input = (gcnew System::Windows::Forms::Label());
+			this->lbl_temp_result = (gcnew System::Windows::Forms::Label());
+			this->btn_temp_convert = (gcnew System::Windows::Forms::Button());
+			this->radio_kelvin = (gcnew System::Windows::Forms::RadioButton());
+			this->radio_fahrenheit_to_celsius = (gcnew System::Windows::Forms::RadioButton());
+			this->radio_celsius_to_fahrenheit = (gcnew System::Windows::Forms::RadioButton());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_temp_result = (gcnew System::Windows::Forms::TextBox());
+			this->txt_temperature = (gcnew System::Windows::Forms::TextBox());
 			this->lbl_operator = (gcnew System::Windows::Forms::Label());
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->standardToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -165,9 +178,6 @@ namespace CLR_Calculator
 			this->helpToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->listB_history = (gcnew System::Windows::Forms::ListBox());
-			this->radio_celsius_to_fahrenheit = (gcnew System::Windows::Forms::RadioButton());
-			this->radio_fahrenheit_to_celsius = (gcnew System::Windows::Forms::RadioButton());
-			this->radio_kelvin = (gcnew System::Windows::Forms::RadioButton());
 			this->panel1->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
@@ -664,13 +674,137 @@ namespace CLR_Calculator
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->btn_temp_reset);
+			this->panel1->Controls->Add(this->lbl_temperature_input);
+			this->panel1->Controls->Add(this->lbl_temp_result);
+			this->panel1->Controls->Add(this->btn_temp_convert);
 			this->panel1->Controls->Add(this->radio_kelvin);
 			this->panel1->Controls->Add(this->radio_fahrenheit_to_celsius);
 			this->panel1->Controls->Add(this->radio_celsius_to_fahrenheit);
+			this->panel1->Controls->Add(this->textBox1);
+			this->panel1->Controls->Add(this->txt_temp_result);
+			this->panel1->Controls->Add(this->txt_temperature);
 			this->panel1->Location = System::Drawing::Point(623, 27);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(540, 410);
+			this->panel1->Size = System::Drawing::Size(383, 410);
 			this->panel1->TabIndex = 3;
+			// 
+			// btn_temp_reset
+			// 
+			this->btn_temp_reset->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btn_temp_reset->Location = System::Drawing::Point(247, 336);
+			this->btn_temp_reset->Name = L"btn_temp_reset";
+			this->btn_temp_reset->Size = System::Drawing::Size(120, 60);
+			this->btn_temp_reset->TabIndex = 1;
+			this->btn_temp_reset->Text = L"Reset";
+			this->btn_temp_reset->UseVisualStyleBackColor = true;
+			this->btn_temp_reset->Click += gcnew System::EventHandler(this, &MainWindow::btn_temp_reset_Click);
+			// 
+			// lbl_temperature_input
+			// 
+			this->lbl_temperature_input->AutoSize = true;
+			this->lbl_temperature_input->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->lbl_temperature_input->Location = System::Drawing::Point(10, 10);
+			this->lbl_temperature_input->Name = L"lbl_temperature_input";
+			this->lbl_temperature_input->Size = System::Drawing::Size(221, 24);
+			this->lbl_temperature_input->TabIndex = 2;
+			this->lbl_temperature_input->Text = L"Enter Value to Convert";
+			// 
+			// lbl_temp_result
+			// 
+			this->lbl_temp_result->AutoSize = true;
+			this->lbl_temp_result->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_temp_result->Location = System::Drawing::Point(17, 281);
+			this->lbl_temp_result->Name = L"lbl_temp_result";
+			this->lbl_temp_result->Size = System::Drawing::Size(200, 24);
+			this->lbl_temp_result->TabIndex = 2;
+			this->lbl_temp_result->Text = L"Result of conversion";
+			// 
+			// btn_temp_convert
+			// 
+			this->btn_temp_convert->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btn_temp_convert->Location = System::Drawing::Point(15, 336);
+			this->btn_temp_convert->Name = L"btn_temp_convert";
+			this->btn_temp_convert->Size = System::Drawing::Size(120, 60);
+			this->btn_temp_convert->TabIndex = 1;
+			this->btn_temp_convert->Text = L"Convert";
+			this->btn_temp_convert->UseVisualStyleBackColor = true;
+			this->btn_temp_convert->Click += gcnew System::EventHandler(this, &MainWindow::btn_temp_convert_Click);
+			// 
+			// radio_kelvin
+			// 
+			this->radio_kelvin->AutoSize = true;
+			this->radio_kelvin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->radio_kelvin->Location = System::Drawing::Point(20, 120);
+			this->radio_kelvin->Name = L"radio_kelvin";
+			this->radio_kelvin->Size = System::Drawing::Size(85, 28);
+			this->radio_kelvin->TabIndex = 0;
+			this->radio_kelvin->TabStop = true;
+			this->radio_kelvin->Text = L"Kelvin";
+			this->radio_kelvin->UseVisualStyleBackColor = true;
+			this->radio_kelvin->Click += gcnew System::EventHandler(this, &MainWindow::temperature_button_Click);
+			// 
+			// radio_fahrenheit_to_celsius
+			// 
+			this->radio_fahrenheit_to_celsius->AutoSize = true;
+			this->radio_fahrenheit_to_celsius->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->radio_fahrenheit_to_celsius->Location = System::Drawing::Point(20, 85);
+			this->radio_fahrenheit_to_celsius->Name = L"radio_fahrenheit_to_celsius";
+			this->radio_fahrenheit_to_celsius->Size = System::Drawing::Size(226, 28);
+			this->radio_fahrenheit_to_celsius->TabIndex = 0;
+			this->radio_fahrenheit_to_celsius->TabStop = true;
+			this->radio_fahrenheit_to_celsius->Text = L"Fahrenheit to Celsius";
+			this->radio_fahrenheit_to_celsius->UseVisualStyleBackColor = true;
+			this->radio_fahrenheit_to_celsius->Click += gcnew System::EventHandler(this, &MainWindow::temperature_button_Click);
+			// 
+			// radio_celsius_to_fahrenheit
+			// 
+			this->radio_celsius_to_fahrenheit->AutoSize = true;
+			this->radio_celsius_to_fahrenheit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->radio_celsius_to_fahrenheit->Location = System::Drawing::Point(20, 50);
+			this->radio_celsius_to_fahrenheit->Name = L"radio_celsius_to_fahrenheit";
+			this->radio_celsius_to_fahrenheit->Size = System::Drawing::Size(226, 28);
+			this->radio_celsius_to_fahrenheit->TabIndex = 0;
+			this->radio_celsius_to_fahrenheit->TabStop = true;
+			this->radio_celsius_to_fahrenheit->Text = L"Celsius to Fahrenheit";
+			this->radio_celsius_to_fahrenheit->UseVisualStyleBackColor = true;
+			this->radio_celsius_to_fahrenheit->Click += gcnew System::EventHandler(this, &MainWindow::temperature_button_Click);
+			// 
+			// textBox1
+			// 
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox1->Location = System::Drawing::Point(297, -269);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(200, 29);
+			this->textBox1->TabIndex = 1;
+			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			// 
+			// txt_temp_result
+			// 
+			this->txt_temp_result->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->txt_temp_result->Location = System::Drawing::Point(247, 280);
+			this->txt_temp_result->Name = L"txt_temp_result";
+			this->txt_temp_result->ReadOnly = true;
+			this->txt_temp_result->Size = System::Drawing::Size(127, 29);
+			this->txt_temp_result->TabIndex = 1;
+			// 
+			// txt_temperature
+			// 
+			this->txt_temperature->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->txt_temperature->Location = System::Drawing::Point(247, 7);
+			this->txt_temperature->Name = L"txt_temperature";
+			this->txt_temperature->Size = System::Drawing::Size(127, 29);
+			this->txt_temperature->TabIndex = 1;
 			// 
 			// lbl_operator
 			// 
@@ -748,7 +882,7 @@ namespace CLR_Calculator
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1164, 24);
+			this->menuStrip1->Size = System::Drawing::Size(1009, 24);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -760,50 +894,11 @@ namespace CLR_Calculator
 			this->listB_history->Size = System::Drawing::Size(278, 134);
 			this->listB_history->TabIndex = 5;
 			// 
-			// radio_celsius_to_fahrenheit
-			// 
-			this->radio_celsius_to_fahrenheit->AutoSize = true;
-			this->radio_celsius_to_fahrenheit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->radio_celsius_to_fahrenheit->Location = System::Drawing::Point(20, 21);
-			this->radio_celsius_to_fahrenheit->Name = L"radio_celsius_to_fahrenheit";
-			this->radio_celsius_to_fahrenheit->Size = System::Drawing::Size(226, 28);
-			this->radio_celsius_to_fahrenheit->TabIndex = 0;
-			this->radio_celsius_to_fahrenheit->TabStop = true;
-			this->radio_celsius_to_fahrenheit->Text = L"Celsius to Fahrenheit";
-			this->radio_celsius_to_fahrenheit->UseVisualStyleBackColor = true;
-			// 
-			// radio_fahrenheit_to_celsius
-			// 
-			this->radio_fahrenheit_to_celsius->AutoSize = true;
-			this->radio_fahrenheit_to_celsius->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->radio_fahrenheit_to_celsius->Location = System::Drawing::Point(20, 71);
-			this->radio_fahrenheit_to_celsius->Name = L"radio_fahrenheit_to_celsius";
-			this->radio_fahrenheit_to_celsius->Size = System::Drawing::Size(226, 28);
-			this->radio_fahrenheit_to_celsius->TabIndex = 0;
-			this->radio_fahrenheit_to_celsius->TabStop = true;
-			this->radio_fahrenheit_to_celsius->Text = L"Fahrenheit to Celsius";
-			this->radio_fahrenheit_to_celsius->UseVisualStyleBackColor = true;
-			// 
-			// radio_kelvin
-			// 
-			this->radio_kelvin->AutoSize = true;
-			this->radio_kelvin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->radio_kelvin->Location = System::Drawing::Point(20, 124);
-			this->radio_kelvin->Name = L"radio_kelvin";
-			this->radio_kelvin->Size = System::Drawing::Size(85, 28);
-			this->radio_kelvin->TabIndex = 0;
-			this->radio_kelvin->TabStop = true;
-			this->radio_kelvin->Text = L"Kelvin";
-			this->radio_kelvin->UseVisualStyleBackColor = true;
-			// 
 			// MainWindow
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1164, 581);
+			this->ClientSize = System::Drawing::Size(1009, 438);
 			this->Controls->Add(this->listB_history);
 			this->Controls->Add(this->lbl_operator);
 			this->Controls->Add(this->panel1);
@@ -924,10 +1019,12 @@ private:
 		}
 		else //Show temperature section
 		{
-			MainWindow::Width = 1180;
+			MainWindow::Width = 1025;
 			temperatureToolStripMenuItem->Checked = true;
 			scientificToolStripMenuItem->Checked = true;
 		}
+		txt_temperature->Text = "0";
+		txt_temp_result->Text = "0";
 	}
 
 	private: System::Void menu_history_Click(System::Object^  sender, System::EventArgs^  e)
@@ -1103,5 +1200,11 @@ private:
 	System::Void btn_op_in_x_Click(System::Object^  sender, System::EventArgs^  e);
 	// % operator event handler
 	System::Void btn_op_percent_Click(System::Object^  sender, System::EventArgs^  e);
+	//Temperature selection
+	System::Void temperature_button_Click(System::Object^  sender, System::EventArgs^  e);
+	//Convert button event handler
+	System::Void btn_temp_convert_Click(System::Object^  sender, System::EventArgs^  e);
+	//Handle temperature reset button event
+	System::Void btn_temp_reset_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }
