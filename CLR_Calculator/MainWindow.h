@@ -74,8 +74,11 @@ namespace CLR_Calculator
 		System::Windows::Forms::Button^  btn_op_bin;
 		System::Windows::Forms::Button^  btn_op_hex;
 		System::Windows::Forms::Button^  btn_op_oct;
-		System::Windows::Forms::Button^  btn_op_x_base2;
-		System::Windows::Forms::Button^  btn_op_x_base3;
+	private: System::Windows::Forms::Button^  btn_op_x_base3;
+
+	private: System::Windows::Forms::Button^  btn_op_x_base2;
+
+
 		System::Windows::Forms::Button^  btn_op_one_divide_x;
 		System::Windows::Forms::Button^  btn_op_in_x;
 		System::Windows::Forms::Button^  btn_op_percent;
@@ -91,6 +94,10 @@ namespace CLR_Calculator
 		System::Windows::Forms::MenuStrip^  menuStrip1;
 		System::Windows::Forms::ListBox^  listB_history;
 		System::Windows::Forms::ToolStripMenuItem^  menu_history;
+	private: System::Windows::Forms::RadioButton^  radio_kelvin;
+
+	private: System::Windows::Forms::RadioButton^  radio_fahrenheit_to_celsius;
+	private: System::Windows::Forms::RadioButton^  radio_celsius_to_fahrenheit;
 
 	private:
 		/// <summary>
@@ -141,8 +148,8 @@ namespace CLR_Calculator
 			this->btn_op_bin = (gcnew System::Windows::Forms::Button());
 			this->btn_op_hex = (gcnew System::Windows::Forms::Button());
 			this->btn_op_oct = (gcnew System::Windows::Forms::Button());
-			this->btn_op_x_base2 = (gcnew System::Windows::Forms::Button());
 			this->btn_op_x_base3 = (gcnew System::Windows::Forms::Button());
+			this->btn_op_x_base2 = (gcnew System::Windows::Forms::Button());
 			this->btn_op_one_divide_x = (gcnew System::Windows::Forms::Button());
 			this->btn_op_in_x = (gcnew System::Windows::Forms::Button());
 			this->btn_op_percent = (gcnew System::Windows::Forms::Button());
@@ -158,6 +165,10 @@ namespace CLR_Calculator
 			this->helpToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->listB_history = (gcnew System::Windows::Forms::ListBox());
+			this->radio_celsius_to_fahrenheit = (gcnew System::Windows::Forms::RadioButton());
+			this->radio_fahrenheit_to_celsius = (gcnew System::Windows::Forms::RadioButton());
+			this->radio_kelvin = (gcnew System::Windows::Forms::RadioButton());
+			this->panel1->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -469,6 +480,7 @@ namespace CLR_Calculator
 			this->btn_op_exp->TabIndex = 2;
 			this->btn_op_exp->Text = L"Exp";
 			this->btn_op_exp->UseVisualStyleBackColor = true;
+			this->btn_op_exp->Click += gcnew System::EventHandler(this, &MainWindow::btn_arithmetic_op);
 			// 
 			// btn_op_log
 			// 
@@ -528,6 +540,7 @@ namespace CLR_Calculator
 			this->btn_op_mod->TabIndex = 2;
 			this->btn_op_mod->Text = L"Mod";
 			this->btn_op_mod->UseVisualStyleBackColor = true;
+			this->btn_op_mod->Click += gcnew System::EventHandler(this, &MainWindow::btn_arithmetic_op);
 			// 
 			// btn_op_sqrt
 			// 
@@ -563,6 +576,7 @@ namespace CLR_Calculator
 			this->btn_op_bin->TabIndex = 2;
 			this->btn_op_bin->Text = L"Bin";
 			this->btn_op_bin->UseVisualStyleBackColor = true;
+			this->btn_op_bin->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_bin_Click);
 			// 
 			// btn_op_hex
 			// 
@@ -574,6 +588,7 @@ namespace CLR_Calculator
 			this->btn_op_hex->TabIndex = 2;
 			this->btn_op_hex->Text = L"Hex";
 			this->btn_op_hex->UseVisualStyleBackColor = true;
+			this->btn_op_hex->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_hex_Click);
 			// 
 			// btn_op_oct
 			// 
@@ -585,28 +600,31 @@ namespace CLR_Calculator
 			this->btn_op_oct->TabIndex = 2;
 			this->btn_op_oct->Text = L"Oct";
 			this->btn_op_oct->UseVisualStyleBackColor = true;
-			// 
-			// btn_op_x_base2
-			// 
-			this->btn_op_x_base2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btn_op_x_base2->Location = System::Drawing::Point(538, 80);
-			this->btn_op_x_base2->Name = L"btn_op_x_base2";
-			this->btn_op_x_base2->Size = System::Drawing::Size(65, 65);
-			this->btn_op_x_base2->TabIndex = 2;
-			this->btn_op_x_base2->Text = L"x^2";
-			this->btn_op_x_base2->UseVisualStyleBackColor = true;
+			this->btn_op_oct->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_oct_Click);
 			// 
 			// btn_op_x_base3
 			// 
 			this->btn_op_x_base3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn_op_x_base3->Location = System::Drawing::Point(538, 151);
+			this->btn_op_x_base3->Location = System::Drawing::Point(538, 80);
 			this->btn_op_x_base3->Name = L"btn_op_x_base3";
 			this->btn_op_x_base3->Size = System::Drawing::Size(65, 65);
 			this->btn_op_x_base3->TabIndex = 2;
 			this->btn_op_x_base3->Text = L"x^3";
 			this->btn_op_x_base3->UseVisualStyleBackColor = true;
+			this->btn_op_x_base3->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_x_base3_Click);
+			// 
+			// btn_op_x_base2
+			// 
+			this->btn_op_x_base2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btn_op_x_base2->Location = System::Drawing::Point(538, 151);
+			this->btn_op_x_base2->Name = L"btn_op_x_base2";
+			this->btn_op_x_base2->Size = System::Drawing::Size(65, 65);
+			this->btn_op_x_base2->TabIndex = 2;
+			this->btn_op_x_base2->Text = L"x^2";
+			this->btn_op_x_base2->UseVisualStyleBackColor = true;
+			this->btn_op_x_base2->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_x_base2_Click);
 			// 
 			// btn_op_one_divide_x
 			// 
@@ -618,6 +636,7 @@ namespace CLR_Calculator
 			this->btn_op_one_divide_x->TabIndex = 2;
 			this->btn_op_one_divide_x->Text = L"1/x";
 			this->btn_op_one_divide_x->UseVisualStyleBackColor = true;
+			this->btn_op_one_divide_x->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_one_divide_x_Click);
 			// 
 			// btn_op_in_x
 			// 
@@ -629,6 +648,7 @@ namespace CLR_Calculator
 			this->btn_op_in_x->TabIndex = 2;
 			this->btn_op_in_x->Text = L"In x";
 			this->btn_op_in_x->UseVisualStyleBackColor = true;
+			this->btn_op_in_x->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_in_x_Click);
 			// 
 			// btn_op_percent
 			// 
@@ -640,9 +660,13 @@ namespace CLR_Calculator
 			this->btn_op_percent->TabIndex = 2;
 			this->btn_op_percent->Text = L"%";
 			this->btn_op_percent->UseVisualStyleBackColor = true;
+			this->btn_op_percent->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_percent_Click);
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->radio_kelvin);
+			this->panel1->Controls->Add(this->radio_fahrenheit_to_celsius);
+			this->panel1->Controls->Add(this->radio_celsius_to_fahrenheit);
 			this->panel1->Location = System::Drawing::Point(623, 27);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(540, 410);
@@ -736,6 +760,45 @@ namespace CLR_Calculator
 			this->listB_history->Size = System::Drawing::Size(278, 134);
 			this->listB_history->TabIndex = 5;
 			// 
+			// radio_celsius_to_fahrenheit
+			// 
+			this->radio_celsius_to_fahrenheit->AutoSize = true;
+			this->radio_celsius_to_fahrenheit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->radio_celsius_to_fahrenheit->Location = System::Drawing::Point(20, 21);
+			this->radio_celsius_to_fahrenheit->Name = L"radio_celsius_to_fahrenheit";
+			this->radio_celsius_to_fahrenheit->Size = System::Drawing::Size(226, 28);
+			this->radio_celsius_to_fahrenheit->TabIndex = 0;
+			this->radio_celsius_to_fahrenheit->TabStop = true;
+			this->radio_celsius_to_fahrenheit->Text = L"Celsius to Fahrenheit";
+			this->radio_celsius_to_fahrenheit->UseVisualStyleBackColor = true;
+			// 
+			// radio_fahrenheit_to_celsius
+			// 
+			this->radio_fahrenheit_to_celsius->AutoSize = true;
+			this->radio_fahrenheit_to_celsius->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->radio_fahrenheit_to_celsius->Location = System::Drawing::Point(20, 71);
+			this->radio_fahrenheit_to_celsius->Name = L"radio_fahrenheit_to_celsius";
+			this->radio_fahrenheit_to_celsius->Size = System::Drawing::Size(226, 28);
+			this->radio_fahrenheit_to_celsius->TabIndex = 0;
+			this->radio_fahrenheit_to_celsius->TabStop = true;
+			this->radio_fahrenheit_to_celsius->Text = L"Fahrenheit to Celsius";
+			this->radio_fahrenheit_to_celsius->UseVisualStyleBackColor = true;
+			// 
+			// radio_kelvin
+			// 
+			this->radio_kelvin->AutoSize = true;
+			this->radio_kelvin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->radio_kelvin->Location = System::Drawing::Point(20, 124);
+			this->radio_kelvin->Name = L"radio_kelvin";
+			this->radio_kelvin->Size = System::Drawing::Size(85, 28);
+			this->radio_kelvin->TabIndex = 0;
+			this->radio_kelvin->TabStop = true;
+			this->radio_kelvin->Text = L"Kelvin";
+			this->radio_kelvin->UseVisualStyleBackColor = true;
+			// 
 			// MainWindow
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -749,9 +812,9 @@ namespace CLR_Calculator
 			this->Controls->Add(this->btn_op_in_x);
 			this->Controls->Add(this->btn_op_multiply);
 			this->Controls->Add(this->btn_op_one_divide_x);
-			this->Controls->Add(this->btn_op_x_base3);
-			this->Controls->Add(this->btn_op_minus);
 			this->Controls->Add(this->btn_op_x_base2);
+			this->Controls->Add(this->btn_op_minus);
+			this->Controls->Add(this->btn_op_x_base3);
 			this->Controls->Add(this->btn_op_pluss);
 			this->Controls->Add(this->btn_op_oct);
 			this->Controls->Add(this->btn_op_negative);
@@ -792,6 +855,8 @@ namespace CLR_Calculator
 			this->Name = L"MainWindow";
 			this->Text = L"Calculator";
 			this->Load += gcnew System::EventHandler(this, &MainWindow::MainWindow_Load);
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
@@ -1021,5 +1086,22 @@ private:
 		listB_history->Items->Add(op->Text + "(" + txt_display->Text + ") = " + a);
 		txt_display->Text = "" + a;
 	}
+private:
+	//Binary operator event handler
+	System::Void btn_op_bin_Click(System::Object^  sender, System::EventArgs^  e);
+	//Hexadecimal operator event handler
+	System::Void btn_op_hex_Click(System::Object^  sender, System::EventArgs^  e);
+	//Octal operator event handler
+	System::Void btn_op_oct_Click(System::Object^  sender, System::EventArgs^  e);
+	//x^3 operator event handler
+	System::Void btn_op_x_base3_Click(System::Object^  sender, System::EventArgs^  e);
+	//x^2 operator event handler
+	System::Void btn_op_x_base2_Click(System::Object^  sender, System::EventArgs^  e);
+	// 1 / x operator event handler
+	System::Void btn_op_one_divide_x_Click(System::Object^  sender, System::EventArgs^  e);
+	// In x operator event handler
+	System::Void btn_op_in_x_Click(System::Object^  sender, System::EventArgs^  e);
+	// % operator event handler
+	System::Void btn_op_percent_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }
