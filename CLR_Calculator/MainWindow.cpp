@@ -57,7 +57,7 @@ double CLR_Calculator::MainWindow::scientific_functions(Button ^ funcOp, double 
 	else if (funcOp->Equals(btn_op_percent))
 		return value / 100.0;
 	else if (funcOp->Equals(btn_op_dec))
-		return int::Parse(txt_display->Text);
+		return Math::Round(value);
 	else if (funcOp->Equals(btn_op_bin))
 		return double::Parse(System::Convert::ToString(static_cast<int>(value), 2));
 	else if (funcOp->Equals(btn_op_hex))
