@@ -77,7 +77,7 @@ namespace CLR_Calculator
 		System::Windows::Forms::Button^  btn_op_x_base3;
 		System::Windows::Forms::Button^  btn_op_x_base2;
 		System::Windows::Forms::Button^  btn_op_one_divide_x;
-		System::Windows::Forms::Button^  btn_op_in_x;
+		System::Windows::Forms::Button^  btn_op_Ln_x;
 		System::Windows::Forms::Button^  btn_op_percent;
 		System::Windows::Forms::Panel^  panel1;
 		System::Windows::Forms::Label^  lbl_operator;
@@ -154,7 +154,7 @@ namespace CLR_Calculator
 			this->btn_op_x_base3 = (gcnew System::Windows::Forms::Button());
 			this->btn_op_x_base2 = (gcnew System::Windows::Forms::Button());
 			this->btn_op_one_divide_x = (gcnew System::Windows::Forms::Button());
-			this->btn_op_in_x = (gcnew System::Windows::Forms::Button());
+			this->btn_op_Ln_x = (gcnew System::Windows::Forms::Button());
 			this->btn_op_percent = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->btn_temp_reset = (gcnew System::Windows::Forms::Button());
@@ -442,7 +442,7 @@ namespace CLR_Calculator
 			this->btn_op_pi->TabIndex = 2;
 			this->btn_op_pi->Text = L"π";
 			this->btn_op_pi->UseVisualStyleBackColor = true;
-			this->btn_op_pi->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_pi_Click);
+			this->btn_op_pi->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_sinh
 			// 
@@ -454,7 +454,7 @@ namespace CLR_Calculator
 			this->btn_op_sinh->TabIndex = 2;
 			this->btn_op_sinh->Text = L"Sinh";
 			this->btn_op_sinh->UseVisualStyleBackColor = true;
-			this->btn_op_sinh->Click += gcnew System::EventHandler(this, &MainWindow::on_trigonometric_op_Click);
+			this->btn_op_sinh->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_cosh
 			// 
@@ -466,7 +466,7 @@ namespace CLR_Calculator
 			this->btn_op_cosh->TabIndex = 2;
 			this->btn_op_cosh->Text = L"Cosh";
 			this->btn_op_cosh->UseVisualStyleBackColor = true;
-			this->btn_op_cosh->Click += gcnew System::EventHandler(this, &MainWindow::on_trigonometric_op_Click);
+			this->btn_op_cosh->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_tanh
 			// 
@@ -478,7 +478,7 @@ namespace CLR_Calculator
 			this->btn_op_tanh->TabIndex = 2;
 			this->btn_op_tanh->Text = L"Tanh";
 			this->btn_op_tanh->UseVisualStyleBackColor = true;
-			this->btn_op_tanh->Click += gcnew System::EventHandler(this, &MainWindow::on_trigonometric_op_Click);
+			this->btn_op_tanh->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_exp
 			// 
@@ -490,7 +490,7 @@ namespace CLR_Calculator
 			this->btn_op_exp->TabIndex = 2;
 			this->btn_op_exp->Text = L"Exp";
 			this->btn_op_exp->UseVisualStyleBackColor = true;
-			this->btn_op_exp->Click += gcnew System::EventHandler(this, &MainWindow::btn_arithmetic_op);
+			this->btn_op_exp->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_equals_Click);
 			// 
 			// btn_op_log
 			// 
@@ -502,7 +502,7 @@ namespace CLR_Calculator
 			this->btn_op_log->TabIndex = 2;
 			this->btn_op_log->Text = L"Log";
 			this->btn_op_log->UseVisualStyleBackColor = true;
-			this->btn_op_log->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_log_Click);
+			this->btn_op_log->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_sin
 			// 
@@ -514,7 +514,7 @@ namespace CLR_Calculator
 			this->btn_op_sin->TabIndex = 2;
 			this->btn_op_sin->Text = L"Sin";
 			this->btn_op_sin->UseVisualStyleBackColor = true;
-			this->btn_op_sin->Click += gcnew System::EventHandler(this, &MainWindow::on_trigonometric_op_Click);
+			this->btn_op_sin->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_cos
 			// 
@@ -526,7 +526,7 @@ namespace CLR_Calculator
 			this->btn_op_cos->TabIndex = 2;
 			this->btn_op_cos->Text = L"Cos";
 			this->btn_op_cos->UseVisualStyleBackColor = true;
-			this->btn_op_cos->Click += gcnew System::EventHandler(this, &MainWindow::on_trigonometric_op_Click);
+			this->btn_op_cos->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_tan
 			// 
@@ -538,7 +538,7 @@ namespace CLR_Calculator
 			this->btn_op_tan->TabIndex = 2;
 			this->btn_op_tan->Text = L"Tan";
 			this->btn_op_tan->UseVisualStyleBackColor = true;
-			this->btn_op_tan->Click += gcnew System::EventHandler(this, &MainWindow::on_trigonometric_op_Click);
+			this->btn_op_tan->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_mod
 			// 
@@ -550,7 +550,7 @@ namespace CLR_Calculator
 			this->btn_op_mod->TabIndex = 2;
 			this->btn_op_mod->Text = L"Mod";
 			this->btn_op_mod->UseVisualStyleBackColor = true;
-			this->btn_op_mod->Click += gcnew System::EventHandler(this, &MainWindow::btn_arithmetic_op);
+			this->btn_op_mod->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_equals_Click);
 			// 
 			// btn_op_sqrt
 			// 
@@ -562,7 +562,7 @@ namespace CLR_Calculator
 			this->btn_op_sqrt->TabIndex = 2;
 			this->btn_op_sqrt->Text = L"Sqrt";
 			this->btn_op_sqrt->UseVisualStyleBackColor = true;
-			this->btn_op_sqrt->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_sqrt_Click);
+			this->btn_op_sqrt->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_dec
 			// 
@@ -574,7 +574,7 @@ namespace CLR_Calculator
 			this->btn_op_dec->TabIndex = 2;
 			this->btn_op_dec->Text = L"Dec";
 			this->btn_op_dec->UseVisualStyleBackColor = true;
-			this->btn_op_dec->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_dec_Click);
+			this->btn_op_dec->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_bin
 			// 
@@ -586,7 +586,7 @@ namespace CLR_Calculator
 			this->btn_op_bin->TabIndex = 2;
 			this->btn_op_bin->Text = L"Bin";
 			this->btn_op_bin->UseVisualStyleBackColor = true;
-			this->btn_op_bin->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_bin_Click);
+			this->btn_op_bin->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_hex
 			// 
@@ -598,7 +598,7 @@ namespace CLR_Calculator
 			this->btn_op_hex->TabIndex = 2;
 			this->btn_op_hex->Text = L"Hex";
 			this->btn_op_hex->UseVisualStyleBackColor = true;
-			this->btn_op_hex->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_hex_Click);
+			this->btn_op_hex->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_oct
 			// 
@@ -610,7 +610,7 @@ namespace CLR_Calculator
 			this->btn_op_oct->TabIndex = 2;
 			this->btn_op_oct->Text = L"Oct";
 			this->btn_op_oct->UseVisualStyleBackColor = true;
-			this->btn_op_oct->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_oct_Click);
+			this->btn_op_oct->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_x_base3
 			// 
@@ -622,7 +622,7 @@ namespace CLR_Calculator
 			this->btn_op_x_base3->TabIndex = 2;
 			this->btn_op_x_base3->Text = L"x^3";
 			this->btn_op_x_base3->UseVisualStyleBackColor = true;
-			this->btn_op_x_base3->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_x_base3_Click);
+			this->btn_op_x_base3->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_x_base2
 			// 
@@ -634,7 +634,7 @@ namespace CLR_Calculator
 			this->btn_op_x_base2->TabIndex = 2;
 			this->btn_op_x_base2->Text = L"x^2";
 			this->btn_op_x_base2->UseVisualStyleBackColor = true;
-			this->btn_op_x_base2->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_x_base2_Click);
+			this->btn_op_x_base2->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_one_divide_x
 			// 
@@ -646,19 +646,19 @@ namespace CLR_Calculator
 			this->btn_op_one_divide_x->TabIndex = 2;
 			this->btn_op_one_divide_x->Text = L"1/x";
 			this->btn_op_one_divide_x->UseVisualStyleBackColor = true;
-			this->btn_op_one_divide_x->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_one_divide_x_Click);
+			this->btn_op_one_divide_x->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
-			// btn_op_in_x
+			// btn_op_Ln_x
 			// 
-			this->btn_op_in_x->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btn_op_Ln_x->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn_op_in_x->Location = System::Drawing::Point(538, 293);
-			this->btn_op_in_x->Name = L"btn_op_in_x";
-			this->btn_op_in_x->Size = System::Drawing::Size(65, 65);
-			this->btn_op_in_x->TabIndex = 2;
-			this->btn_op_in_x->Text = L"In x";
-			this->btn_op_in_x->UseVisualStyleBackColor = true;
-			this->btn_op_in_x->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_in_x_Click);
+			this->btn_op_Ln_x->Location = System::Drawing::Point(538, 293);
+			this->btn_op_Ln_x->Name = L"btn_op_Ln_x";
+			this->btn_op_Ln_x->Size = System::Drawing::Size(65, 65);
+			this->btn_op_Ln_x->TabIndex = 2;
+			this->btn_op_Ln_x->Text = L"Ln x";
+			this->btn_op_Ln_x->UseVisualStyleBackColor = true;
+			this->btn_op_Ln_x->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_percent
 			// 
@@ -670,7 +670,7 @@ namespace CLR_Calculator
 			this->btn_op_percent->TabIndex = 2;
 			this->btn_op_percent->Text = L"%";
 			this->btn_op_percent->UseVisualStyleBackColor = true;
-			this->btn_op_percent->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_percent_Click);
+			this->btn_op_percent->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// panel1
 			// 
@@ -904,7 +904,7 @@ namespace CLR_Calculator
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->btn_op_percent);
 			this->Controls->Add(this->btn_op_divide);
-			this->Controls->Add(this->btn_op_in_x);
+			this->Controls->Add(this->btn_op_Ln_x);
 			this->Controls->Add(this->btn_op_multiply);
 			this->Controls->Add(this->btn_op_one_divide_x);
 			this->Controls->Add(this->btn_op_x_base2);
@@ -959,7 +959,8 @@ namespace CLR_Calculator
 
 		}
 #pragma endregion
-
+//Variables
+private:
 		double iFirstNum;
 		double iSecondNum;
 		double iResult;
@@ -967,239 +968,33 @@ namespace CLR_Calculator
 		String^ iOperator;
 		float iCelcius, iFehrenheit, iKelvin;
 		char iOperation;
+
+//Methods
 private:
 	double trigonometric_functions(Button^ funcOp, double value);
 	System::Void on_trigonometric_op_Click(System::Object^  sender, System::EventArgs^  e);
-
-	private: System::Void MainWindow_Load(System::Object^  sender, System::EventArgs^  e) 
-	{
-		txt_display->Text = "0";
-		lbl_operator->Text = "";
-		standardToolStripMenuItem_Click(sender, e);
-	}
-
-	private: System::Void standardToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
-	{
-		//Reduce size of window to hide remains of application
-		MainWindow::Width = 320;
-		MainWindow::Height = 480;
-		standardToolStripMenuItem->Checked = true;
-
-		//Display text box size
-		txt_display->Width = 278;
-		scientificToolStripMenuItem->Checked = false;
-		temperatureToolStripMenuItem->Checked = false;
-		menu_history->Checked = false;
-	}
-
-	private: System::Void scientificToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) 
-	{
-		//Hide scientific section and everything that is to the right of it
-		if (scientificToolStripMenuItem->Checked)
-		{
-			standardToolStripMenuItem_Click(sender, e);
-			scientificToolStripMenuItem->Checked = false;
-		}
-		else
-		{
-			//Show scientific section of window
-			MainWindow::Width = 640;
-			scientificToolStripMenuItem->Checked = true;
-		}
-		temperatureToolStripMenuItem->Checked = false;
-	}
+	System::Void MainWindow_Load(System::Object^  sender, System::EventArgs^  e);
+	System::Void standardToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+	System::Void scientificToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 	//Set window size to include scientific and standard sections
-	private: System::Void temperatureToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) 
-	{
-		//Hide temperature section
-		if (temperatureToolStripMenuItem->Checked)
-		{
-			MainWindow::Width = 640;
-			temperatureToolStripMenuItem->Checked = false;
-		}
-		else //Show temperature section
-		{
-			MainWindow::Width = 1025;
-			temperatureToolStripMenuItem->Checked = true;
-			scientificToolStripMenuItem->Checked = true;
-		}
-		txt_temperature->Text = "0";
-		txt_temp_result->Text = "0";
-	}
-
-	private: System::Void menu_history_Click(System::Object^  sender, System::EventArgs^  e)
-	{
-		if (menu_history->Checked == false)
-		{
-			menu_history->Checked = true;
-			MainWindow::Height = 620;
-		}
-		else
-		{
-			menu_history->Checked = false;
-			MainWindow::Height = 480;
-		}
-	}
-
-	private: System::Void exitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) 
-	{
-		Application::Exit();
-	}
-
-	private: System::Void btn_number_Click(System::Object^  sender, System::EventArgs^  e) 
-	{
-		Button^ numbers = safe_cast<Button^>(sender);
-
-		if (txt_display->Text == "0")
-		{
-			txt_display->Text = numbers->Text;
-		}
-		else
-		{
-			txt_display->Text = txt_display->Text + numbers->Text;
-		}
-	}
-	private: System::Void btn_clear_Click(System::Object^  sender, System::EventArgs^  e) 
-	{
-		txt_display->Clear();
-		txt_display->Text = "0";
-		lbl_operator->Text = "";
-	}
-	private: System::Void btn_sign_comma_Click(System::Object^  sender, System::EventArgs^  e) 
-	{
-		//Handle decimal point
-		if (!txt_display->Text->Contains(","))
-		{
-			txt_display->Text = txt_display->Text + ",";
-		}
-	}
-
-	private: System::Void btn_arithmetic_op(System::Object^  sender, System::EventArgs^  e) 
-	{
-		Button^ op = safe_cast<Button^>(sender);
-		iFirstNum = Double::Parse(txt_display->Text);
-		txt_display->Text = "";
-		iOperator = op->Text;
-		lbl_operator->Text = System::Convert::ToString(iOperator);
-	}
-
-	private: System::Void btn_op_negative_Click(System::Object^  sender, System::EventArgs^  e) 
-	{
-		//Plus / Minus
-		if (txt_display->Text->Contains("-"))
-		{
-			txt_display->Text = txt_display->Text->Remove(0, 1);
-		}
-		else
-		{
-			txt_display->Text = "-" + txt_display->Text;
-		}
-	}
-	private: System::Void btn_op_equals_Click(System::Object^  sender, System::EventArgs^  e) 
-	{
-		iSecondNum = Double::Parse(txt_display->Text);
-		if (iOperator == "+")
-		{
-			iResult = iFirstNum + iSecondNum;
-			txt_display->Text = ""+iResult;
-			listB_history->Items->Add(System::Convert::ToString(lbl_operator->Text));
-		}
-		else if (iOperator == "-")
-		{
-			iResult = iFirstNum - iSecondNum;
-			txt_display->Text = "" + iResult;
-			listB_history->Items->Add(System::Convert::ToString(lbl_operator->Text));
-		}
-		else if (iOperator == "*")
-		{
-			iResult = iFirstNum * iSecondNum;
-			txt_display->Text = "" + iResult;
-			listB_history->Items->Add(System::Convert::ToString(lbl_operator->Text));
-		}
-		else if (iOperator == "/")
-		{
-			iResult = iFirstNum / iSecondNum;
-			txt_display->Text = "" + iResult;
-			listB_history->Items->Add(System::Convert::ToString(lbl_operator->Text));
-		}
-		else if (iOperator == "Mod")
-		{
-			iResult = (int)iFirstNum % (int)iSecondNum;
-			txt_display->Text = "" + iResult;
-			listB_history->Items->Add(System::Convert::ToString(lbl_operator->Text));
-		}
-		else if (iOperator == "Exp")
-		{
-			iResult = (iFirstNum, (1 / iSecondNum));
-			txt_display->Text = "" + iResult;
-			listB_history->Items->Add(System::Convert::ToString(lbl_operator->Text));
-		}
-	}
-
-	private: System::Void btn_backslash_Click(System::Object^  sender, System::EventArgs^  e) 
-	{
-		//If input is longer than 1, remove last number
-		if (txt_display->Text->Length > 1)
-		{
-			txt_display->Text = txt_display->Text->Remove(txt_display->Text->Length - 1, 1);
-		}
-		else //Reset input to zero if input is 1 or less
-		{
-			txt_display->Text = "0";
-		}
-	}
-
-	//Pi button event
-	private: System::Void btn_op_pi_Click(System::Object^  sender, System::EventArgs^  e) 
-	{
-		txt_display->Text = "3.14";
-	}
-
-	//Log button event
-	private: System::Void btn_op_log_Click(System::Object^  sender, System::EventArgs^  e) 
-	{
-		a = Double::Parse(txt_display->Text);
-		lbl_operator->Text = "log (" + txt_display->Text + ")";
-		listB_history->Items->Add(lbl_operator->Text);
-		a = Math::Log(a);
-		txt_display->Text = ""+a;
-	}
-
-	//Square button event
-	private: System::Void btn_op_sqrt_Click(System::Object^  sender, System::EventArgs^  e) 
-	{
-		a = Double::Parse(txt_display->Text);
-		a = Math::Sqrt(a);
-		listB_history->Items->Add("Sqrt("+txt_display->Text+") = "+a);
-		txt_display->Text = "" + a;
-	}
-
-	//Denary / decimal
-	private: System::Void btn_op_dec_Click(System::Object^  sender, System::EventArgs^  e) 
-	{
-		Button^ op = safe_cast<Button^>(sender);
-		int a = int::Parse(txt_display->Text);
-		lbl_operator->Text = op->Text;
-		listB_history->Items->Add(op->Text + "(" + txt_display->Text + ") = " + a);
-		txt_display->Text = "" + a;
-	}
-private:
-	//Binary operator event handler
-	System::Void btn_op_bin_Click(System::Object^  sender, System::EventArgs^  e);
-	//Hexadecimal operator event handler
-	System::Void btn_op_hex_Click(System::Object^  sender, System::EventArgs^  e);
-	//Octal operator event handler
-	System::Void btn_op_oct_Click(System::Object^  sender, System::EventArgs^  e);
-	//x^3 operator event handler
-	System::Void btn_op_x_base3_Click(System::Object^  sender, System::EventArgs^  e);
-	//x^2 operator event handler
-	System::Void btn_op_x_base2_Click(System::Object^  sender, System::EventArgs^  e);
-	// 1 / x operator event handler
-	System::Void btn_op_one_divide_x_Click(System::Object^  sender, System::EventArgs^  e);
-	// In x operator event handler
-	System::Void btn_op_in_x_Click(System::Object^  sender, System::EventArgs^  e);
-	// % operator event handler
-	System::Void btn_op_percent_Click(System::Object^  sender, System::EventArgs^  e);
+	System::Void temperatureToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+	System::Void menu_history_Click(System::Object^  sender, System::EventArgs^  e);
+	System::Void exitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+	System::Void btn_number_Click(System::Object^  sender, System::EventArgs^  e);
+	System::Void btn_clear_Click(System::Object^  sender, System::EventArgs^  e);
+	System::Void btn_sign_comma_Click(System::Object^  sender, System::EventArgs^  e);
+	//Handle +, -, * and / operations
+	System::Void btn_arithmetic_op(System::Object^  sender, System::EventArgs^  e);
+	//handle +- button event
+	System::Void btn_op_negative_Click(System::Object^  sender, System::EventArgs^  e);
+	//Handles expression evaluation event
+	System::Void btn_op_equals_Click(System::Object^  sender, System::EventArgs^  e);
+	//Handles removing a single number from display
+	System::Void btn_backslash_Click(System::Object^  sender, System::EventArgs^  e);
+	//Handle scientific button click events
+	System::Void on_scientific_op_Click(System::Object^  sender, System::EventArgs^  e);
+	//Handles scientific operators
+	double scientific_functions(Button^ funcOp, double value);
 	//Temperature selection
 	System::Void temperature_button_Click(System::Object^  sender, System::EventArgs^  e);
 	//Convert button event handler
