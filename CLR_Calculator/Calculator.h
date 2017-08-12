@@ -8,10 +8,10 @@
 class Calculator
 {
 private:
-	bool ERROR;
-	std::stack<double> operandStack;
-	std::stack <OperatorTypes> operatorStack;
-	std::map<std::string, OperatorTypes> operatorTypeMap;
+	std::stack<double> m_operandStack;
+	std::stack <OperatorTypes> m_operatorStack;
+	std::map<std::string, OperatorTypes> m_operatorTypeMap;
+	bool m_error;
 public:
 	Calculator();
 	virtual ~Calculator();
@@ -55,8 +55,8 @@ public:
 	/// <param name="type">Value to be used as key value</param>
 	void enlistOperatorTypes(std::string key, OperatorTypes type);
 	/// <summary>
-	/// Check if either operand or operator stacks needs clearing and pop all remaining values
+	/// Clears stacks and sets bool to false
 	/// </summary>
-	void ClearStacks();
+	void ResetMemberVariables();
 };
 

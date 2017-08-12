@@ -17,12 +17,16 @@ namespace CLR_Calculator
 	public ref class MainWindow : public System::Windows::Forms::Form
 	{
 	public:
-		MainWindow(void) : calculator()
+		MainWindow(void) : mp_calculator(new Calculator())
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
+			m_clearDisplayOnNextInput = false;
+			m_hasLeftParenthesis = false;
+			m_hasBinaryInput = false;
+			initOperators();
 		}
 
 	protected:
@@ -35,8 +39,8 @@ namespace CLR_Calculator
 			{
 				delete components;
 			}
-			if (calculator)
-				delete calculator;
+			if (mp_calculator)
+				delete mp_calculator;
 		}
 
 	protected:
@@ -45,7 +49,8 @@ namespace CLR_Calculator
 		System::Windows::Forms::TextBox^  txt_display;
 		System::Windows::Forms::Button^  btn_backslash;
 		System::Windows::Forms::Button^  btn_clear_everything;
-		System::Windows::Forms::Button^  btn_clear;
+	private: System::Windows::Forms::Button^  btn_add_parenthesis;
+
 		System::Windows::Forms::Button^  btn_op_negative;
 		System::Windows::Forms::Button^  btn_seven;
 		System::Windows::Forms::Button^  btn_eight;
@@ -84,7 +89,7 @@ namespace CLR_Calculator
 		System::Windows::Forms::Button^  btn_op_Ln_x;
 		System::Windows::Forms::Button^  btn_op_percent;
 		System::Windows::Forms::Panel^  panel1;
-		System::Windows::Forms::Label^  lbl_operator;
+
 		System::Windows::Forms::ToolStripMenuItem^  fileToolStripMenuItem;
 		System::Windows::Forms::ToolStripMenuItem^  standardToolStripMenuItem;
 		System::Windows::Forms::ToolStripMenuItem^  scientificToolStripMenuItem;
@@ -111,7 +116,7 @@ namespace CLR_Calculator
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
-		Calculator *calculator;
+		Calculator *mp_calculator;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -123,7 +128,7 @@ namespace CLR_Calculator
 			this->txt_display = (gcnew System::Windows::Forms::TextBox());
 			this->btn_backslash = (gcnew System::Windows::Forms::Button());
 			this->btn_clear_everything = (gcnew System::Windows::Forms::Button());
-			this->btn_clear = (gcnew System::Windows::Forms::Button());
+			this->btn_add_parenthesis = (gcnew System::Windows::Forms::Button());
 			this->btn_op_negative = (gcnew System::Windows::Forms::Button());
 			this->btn_seven = (gcnew System::Windows::Forms::Button());
 			this->btn_eight = (gcnew System::Windows::Forms::Button());
@@ -172,7 +177,6 @@ namespace CLR_Calculator
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->txt_temp_result = (gcnew System::Windows::Forms::TextBox());
 			this->txt_temperature = (gcnew System::Windows::Forms::TextBox());
-			this->lbl_operator = (gcnew System::Windows::Forms::Label());
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->standardToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->scientificToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -221,17 +225,17 @@ namespace CLR_Calculator
 			this->btn_clear_everything->UseVisualStyleBackColor = true;
 			this->btn_clear_everything->Click += gcnew System::EventHandler(this, &MainWindow::btn_clear_Click);
 			// 
-			// btn_clear
+			// btn_add_parenthesis
 			// 
-			this->btn_clear->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btn_clear->Location = System::Drawing::Point(154, 80);
-			this->btn_clear->Name = L"btn_clear";
-			this->btn_clear->Size = System::Drawing::Size(65, 65);
-			this->btn_clear->TabIndex = 2;
-			this->btn_clear->Text = L"C";
-			this->btn_clear->UseVisualStyleBackColor = true;
-			this->btn_clear->Click += gcnew System::EventHandler(this, &MainWindow::btn_clear_Click);
+			this->btn_add_parenthesis->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->btn_add_parenthesis->Location = System::Drawing::Point(154, 80);
+			this->btn_add_parenthesis->Name = L"btn_add_parenthesis";
+			this->btn_add_parenthesis->Size = System::Drawing::Size(65, 65);
+			this->btn_add_parenthesis->TabIndex = 2;
+			this->btn_add_parenthesis->Text = L"( )";
+			this->btn_add_parenthesis->UseVisualStyleBackColor = true;
+			this->btn_add_parenthesis->Click += gcnew System::EventHandler(this, &MainWindow::add_parenthesis_Click);
 			// 
 			// btn_op_negative
 			// 
@@ -243,7 +247,7 @@ namespace CLR_Calculator
 			this->btn_op_negative->TabIndex = 2;
 			this->btn_op_negative->Text = L"±";
 			this->btn_op_negative->UseVisualStyleBackColor = true;
-			this->btn_op_negative->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_negative_Click);
+			this->btn_op_negative->Click += gcnew System::EventHandler(this, &MainWindow::add_simple_operator_to_expression);
 			// 
 			// btn_seven
 			// 
@@ -255,7 +259,7 @@ namespace CLR_Calculator
 			this->btn_seven->TabIndex = 2;
 			this->btn_seven->Text = L"7";
 			this->btn_seven->UseVisualStyleBackColor = true;
-			this->btn_seven->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
+			this->btn_seven->Click += gcnew System::EventHandler(this, &MainWindow::add_operand_to_expression);
 			// 
 			// btn_eight
 			// 
@@ -267,7 +271,7 @@ namespace CLR_Calculator
 			this->btn_eight->TabIndex = 2;
 			this->btn_eight->Text = L"8";
 			this->btn_eight->UseVisualStyleBackColor = true;
-			this->btn_eight->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
+			this->btn_eight->Click += gcnew System::EventHandler(this, &MainWindow::add_operand_to_expression);
 			// 
 			// btn_nine
 			// 
@@ -279,7 +283,7 @@ namespace CLR_Calculator
 			this->btn_nine->TabIndex = 2;
 			this->btn_nine->Text = L"9";
 			this->btn_nine->UseVisualStyleBackColor = true;
-			this->btn_nine->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
+			this->btn_nine->Click += gcnew System::EventHandler(this, &MainWindow::add_operand_to_expression);
 			// 
 			// btn_op_pluss
 			// 
@@ -291,7 +295,7 @@ namespace CLR_Calculator
 			this->btn_op_pluss->TabIndex = 2;
 			this->btn_op_pluss->Text = L"+";
 			this->btn_op_pluss->UseVisualStyleBackColor = true;
-			this->btn_op_pluss->Click += gcnew System::EventHandler(this, &MainWindow::btn_arithmetic_op);
+			this->btn_op_pluss->Click += gcnew System::EventHandler(this, &MainWindow::add_simple_operator_to_expression);
 			// 
 			// btn_four
 			// 
@@ -303,7 +307,7 @@ namespace CLR_Calculator
 			this->btn_four->TabIndex = 2;
 			this->btn_four->Text = L"4";
 			this->btn_four->UseVisualStyleBackColor = true;
-			this->btn_four->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
+			this->btn_four->Click += gcnew System::EventHandler(this, &MainWindow::add_operand_to_expression);
 			// 
 			// btn_five
 			// 
@@ -315,7 +319,7 @@ namespace CLR_Calculator
 			this->btn_five->TabIndex = 2;
 			this->btn_five->Text = L"5";
 			this->btn_five->UseVisualStyleBackColor = true;
-			this->btn_five->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
+			this->btn_five->Click += gcnew System::EventHandler(this, &MainWindow::add_operand_to_expression);
 			// 
 			// btn_six
 			// 
@@ -327,7 +331,7 @@ namespace CLR_Calculator
 			this->btn_six->TabIndex = 2;
 			this->btn_six->Text = L"6";
 			this->btn_six->UseVisualStyleBackColor = true;
-			this->btn_six->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
+			this->btn_six->Click += gcnew System::EventHandler(this, &MainWindow::add_operand_to_expression);
 			// 
 			// btn_op_minus
 			// 
@@ -339,7 +343,7 @@ namespace CLR_Calculator
 			this->btn_op_minus->TabIndex = 2;
 			this->btn_op_minus->Text = L"-";
 			this->btn_op_minus->UseVisualStyleBackColor = true;
-			this->btn_op_minus->Click += gcnew System::EventHandler(this, &MainWindow::btn_arithmetic_op);
+			this->btn_op_minus->Click += gcnew System::EventHandler(this, &MainWindow::add_simple_operator_to_expression);
 			// 
 			// btn_one
 			// 
@@ -351,7 +355,7 @@ namespace CLR_Calculator
 			this->btn_one->TabIndex = 2;
 			this->btn_one->Text = L"1";
 			this->btn_one->UseVisualStyleBackColor = true;
-			this->btn_one->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
+			this->btn_one->Click += gcnew System::EventHandler(this, &MainWindow::add_operand_to_expression);
 			// 
 			// btn_two
 			// 
@@ -363,7 +367,7 @@ namespace CLR_Calculator
 			this->btn_two->TabIndex = 2;
 			this->btn_two->Text = L"2";
 			this->btn_two->UseVisualStyleBackColor = true;
-			this->btn_two->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
+			this->btn_two->Click += gcnew System::EventHandler(this, &MainWindow::add_operand_to_expression);
 			// 
 			// btn_three
 			// 
@@ -375,7 +379,7 @@ namespace CLR_Calculator
 			this->btn_three->TabIndex = 2;
 			this->btn_three->Text = L"3";
 			this->btn_three->UseVisualStyleBackColor = true;
-			this->btn_three->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
+			this->btn_three->Click += gcnew System::EventHandler(this, &MainWindow::add_operand_to_expression);
 			// 
 			// btn_op_multiply
 			// 
@@ -387,7 +391,7 @@ namespace CLR_Calculator
 			this->btn_op_multiply->TabIndex = 2;
 			this->btn_op_multiply->Text = L"*";
 			this->btn_op_multiply->UseVisualStyleBackColor = true;
-			this->btn_op_multiply->Click += gcnew System::EventHandler(this, &MainWindow::btn_arithmetic_op);
+			this->btn_op_multiply->Click += gcnew System::EventHandler(this, &MainWindow::add_simple_operator_to_expression);
 			// 
 			// btn_0
 			// 
@@ -399,7 +403,7 @@ namespace CLR_Calculator
 			this->btn_0->TabIndex = 2;
 			this->btn_0->Text = L"0";
 			this->btn_0->UseVisualStyleBackColor = true;
-			this->btn_0->Click += gcnew System::EventHandler(this, &MainWindow::btn_number_Click);
+			this->btn_0->Click += gcnew System::EventHandler(this, &MainWindow::add_operand_to_expression);
 			// 
 			// btn_sign_comma
 			// 
@@ -411,7 +415,7 @@ namespace CLR_Calculator
 			this->btn_sign_comma->TabIndex = 2;
 			this->btn_sign_comma->Text = L",";
 			this->btn_sign_comma->UseVisualStyleBackColor = true;
-			this->btn_sign_comma->Click += gcnew System::EventHandler(this, &MainWindow::btn_sign_comma_Click);
+			this->btn_sign_comma->Click += gcnew System::EventHandler(this, &MainWindow::add_operand_to_expression);
 			// 
 			// btn_op_equals
 			// 
@@ -435,7 +439,7 @@ namespace CLR_Calculator
 			this->btn_op_divide->TabIndex = 2;
 			this->btn_op_divide->Text = L"/";
 			this->btn_op_divide->UseVisualStyleBackColor = true;
-			this->btn_op_divide->Click += gcnew System::EventHandler(this, &MainWindow::btn_arithmetic_op);
+			this->btn_op_divide->Click += gcnew System::EventHandler(this, &MainWindow::add_simple_operator_to_expression);
 			// 
 			// btn_op_pi
 			// 
@@ -447,7 +451,7 @@ namespace CLR_Calculator
 			this->btn_op_pi->TabIndex = 2;
 			this->btn_op_pi->Text = L"π";
 			this->btn_op_pi->UseVisualStyleBackColor = true;
-			this->btn_op_pi->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_pi->Click += gcnew System::EventHandler(this, &MainWindow::add_operand_to_expression);
 			// 
 			// btn_op_sinh
 			// 
@@ -459,7 +463,7 @@ namespace CLR_Calculator
 			this->btn_op_sinh->TabIndex = 2;
 			this->btn_op_sinh->Text = L"Sinh";
 			this->btn_op_sinh->UseVisualStyleBackColor = true;
-			this->btn_op_sinh->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_sinh->Click += gcnew System::EventHandler(this, &MainWindow::add_complex_operator_to_expression);
 			// 
 			// btn_op_cosh
 			// 
@@ -471,7 +475,7 @@ namespace CLR_Calculator
 			this->btn_op_cosh->TabIndex = 2;
 			this->btn_op_cosh->Text = L"Cosh";
 			this->btn_op_cosh->UseVisualStyleBackColor = true;
-			this->btn_op_cosh->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_cosh->Click += gcnew System::EventHandler(this, &MainWindow::add_complex_operator_to_expression);
 			// 
 			// btn_op_tanh
 			// 
@@ -483,7 +487,7 @@ namespace CLR_Calculator
 			this->btn_op_tanh->TabIndex = 2;
 			this->btn_op_tanh->Text = L"Tanh";
 			this->btn_op_tanh->UseVisualStyleBackColor = true;
-			this->btn_op_tanh->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_tanh->Click += gcnew System::EventHandler(this, &MainWindow::add_complex_operator_to_expression);
 			// 
 			// btn_op_exp
 			// 
@@ -507,7 +511,7 @@ namespace CLR_Calculator
 			this->btn_op_log->TabIndex = 2;
 			this->btn_op_log->Text = L"Log";
 			this->btn_op_log->UseVisualStyleBackColor = true;
-			this->btn_op_log->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_log->Click += gcnew System::EventHandler(this, &MainWindow::add_complex_operator_to_expression);
 			// 
 			// btn_op_sin
 			// 
@@ -519,7 +523,7 @@ namespace CLR_Calculator
 			this->btn_op_sin->TabIndex = 2;
 			this->btn_op_sin->Text = L"Sin";
 			this->btn_op_sin->UseVisualStyleBackColor = true;
-			this->btn_op_sin->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_sin->Click += gcnew System::EventHandler(this, &MainWindow::add_complex_operator_to_expression);
 			// 
 			// btn_op_cos
 			// 
@@ -531,7 +535,7 @@ namespace CLR_Calculator
 			this->btn_op_cos->TabIndex = 2;
 			this->btn_op_cos->Text = L"Cos";
 			this->btn_op_cos->UseVisualStyleBackColor = true;
-			this->btn_op_cos->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_cos->Click += gcnew System::EventHandler(this, &MainWindow::add_complex_operator_to_expression);
 			// 
 			// btn_op_tan
 			// 
@@ -543,7 +547,7 @@ namespace CLR_Calculator
 			this->btn_op_tan->TabIndex = 2;
 			this->btn_op_tan->Text = L"Tan";
 			this->btn_op_tan->UseVisualStyleBackColor = true;
-			this->btn_op_tan->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_tan->Click += gcnew System::EventHandler(this, &MainWindow::add_complex_operator_to_expression);
 			// 
 			// btn_op_mod
 			// 
@@ -555,7 +559,7 @@ namespace CLR_Calculator
 			this->btn_op_mod->TabIndex = 2;
 			this->btn_op_mod->Text = L"Mod";
 			this->btn_op_mod->UseVisualStyleBackColor = true;
-			this->btn_op_mod->Click += gcnew System::EventHandler(this, &MainWindow::btn_op_equals_Click);
+			this->btn_op_mod->Click += gcnew System::EventHandler(this, &MainWindow::add_complex_operator_to_expression);
 			// 
 			// btn_op_sqrt
 			// 
@@ -567,7 +571,7 @@ namespace CLR_Calculator
 			this->btn_op_sqrt->TabIndex = 2;
 			this->btn_op_sqrt->Text = L"Sqrt";
 			this->btn_op_sqrt->UseVisualStyleBackColor = true;
-			this->btn_op_sqrt->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_sqrt->Click += gcnew System::EventHandler(this, &MainWindow::add_complex_operator_to_expression);
 			// 
 			// btn_op_dec
 			// 
@@ -579,7 +583,6 @@ namespace CLR_Calculator
 			this->btn_op_dec->TabIndex = 2;
 			this->btn_op_dec->Text = L"Dec";
 			this->btn_op_dec->UseVisualStyleBackColor = true;
-			this->btn_op_dec->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
 			// 
 			// btn_op_bin
 			// 
@@ -591,7 +594,7 @@ namespace CLR_Calculator
 			this->btn_op_bin->TabIndex = 2;
 			this->btn_op_bin->Text = L"Bin";
 			this->btn_op_bin->UseVisualStyleBackColor = true;
-			this->btn_op_bin->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_bin->Click += gcnew System::EventHandler(this, &MainWindow::on_binary_op_Click);
 			// 
 			// btn_op_hex
 			// 
@@ -603,7 +606,7 @@ namespace CLR_Calculator
 			this->btn_op_hex->TabIndex = 2;
 			this->btn_op_hex->Text = L"Hex";
 			this->btn_op_hex->UseVisualStyleBackColor = true;
-			this->btn_op_hex->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_hex->Click += gcnew System::EventHandler(this, &MainWindow::on_binary_op_Click);
 			// 
 			// btn_op_oct
 			// 
@@ -615,7 +618,7 @@ namespace CLR_Calculator
 			this->btn_op_oct->TabIndex = 2;
 			this->btn_op_oct->Text = L"Oct";
 			this->btn_op_oct->UseVisualStyleBackColor = true;
-			this->btn_op_oct->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_oct->Click += gcnew System::EventHandler(this, &MainWindow::on_binary_op_Click);
 			// 
 			// btn_op_x_base3
 			// 
@@ -627,7 +630,7 @@ namespace CLR_Calculator
 			this->btn_op_x_base3->TabIndex = 2;
 			this->btn_op_x_base3->Text = L"x^3";
 			this->btn_op_x_base3->UseVisualStyleBackColor = true;
-			this->btn_op_x_base3->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_x_base3->Click += gcnew System::EventHandler(this, &MainWindow::add_complex_operator_to_expression);
 			// 
 			// btn_op_x_base2
 			// 
@@ -639,7 +642,7 @@ namespace CLR_Calculator
 			this->btn_op_x_base2->TabIndex = 2;
 			this->btn_op_x_base2->Text = L"x^2";
 			this->btn_op_x_base2->UseVisualStyleBackColor = true;
-			this->btn_op_x_base2->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_x_base2->Click += gcnew System::EventHandler(this, &MainWindow::add_complex_operator_to_expression);
 			// 
 			// btn_op_one_divide_x
 			// 
@@ -651,7 +654,7 @@ namespace CLR_Calculator
 			this->btn_op_one_divide_x->TabIndex = 2;
 			this->btn_op_one_divide_x->Text = L"1/x";
 			this->btn_op_one_divide_x->UseVisualStyleBackColor = true;
-			this->btn_op_one_divide_x->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_one_divide_x->Click += gcnew System::EventHandler(this, &MainWindow::add_complex_operator_to_expression);
 			// 
 			// btn_op_Ln_x
 			// 
@@ -663,7 +666,7 @@ namespace CLR_Calculator
 			this->btn_op_Ln_x->TabIndex = 2;
 			this->btn_op_Ln_x->Text = L"Ln x";
 			this->btn_op_Ln_x->UseVisualStyleBackColor = true;
-			this->btn_op_Ln_x->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_Ln_x->Click += gcnew System::EventHandler(this, &MainWindow::add_complex_operator_to_expression);
 			// 
 			// btn_op_percent
 			// 
@@ -675,7 +678,7 @@ namespace CLR_Calculator
 			this->btn_op_percent->TabIndex = 2;
 			this->btn_op_percent->Text = L"%";
 			this->btn_op_percent->UseVisualStyleBackColor = true;
-			this->btn_op_percent->Click += gcnew System::EventHandler(this, &MainWindow::on_scientific_op_Click);
+			this->btn_op_percent->Click += gcnew System::EventHandler(this, &MainWindow::add_simple_operator_to_expression);
 			// 
 			// panel1
 			// 
@@ -811,17 +814,6 @@ namespace CLR_Calculator
 			this->txt_temperature->Size = System::Drawing::Size(127, 29);
 			this->txt_temperature->TabIndex = 1;
 			// 
-			// lbl_operator
-			// 
-			this->lbl_operator->BackColor = System::Drawing::Color::White;
-			this->lbl_operator->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lbl_operator->Location = System::Drawing::Point(13, 39);
-			this->lbl_operator->Name = L"lbl_operator";
-			this->lbl_operator->Size = System::Drawing::Size(25, 25);
-			this->lbl_operator->TabIndex = 4;
-			this->lbl_operator->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
 			// fileToolStripMenuItem
 			// 
 			this->fileToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
@@ -905,7 +897,6 @@ namespace CLR_Calculator
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1009, 438);
 			this->Controls->Add(this->listB_history);
-			this->Controls->Add(this->lbl_operator);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->btn_op_percent);
 			this->Controls->Add(this->btn_op_divide);
@@ -927,7 +918,7 @@ namespace CLR_Calculator
 			this->Controls->Add(this->btn_op_sqrt);
 			this->Controls->Add(this->btn_nine);
 			this->Controls->Add(this->btn_op_mod);
-			this->Controls->Add(this->btn_clear);
+			this->Controls->Add(this->btn_add_parenthesis);
 			this->Controls->Add(this->btn_op_tan);
 			this->Controls->Add(this->btn_sign_comma);
 			this->Controls->Add(this->btn_op_cos);
@@ -961,55 +952,59 @@ namespace CLR_Calculator
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
+
 		}
 #pragma endregion
 //Variables
 private:
-		double iFirstNum;
-		double iSecondNum;
-		double iResult;
-		double a;
-		String^ iOperator;
-		float iCelcius, iFehrenheit, iKelvin;
-		char iOperation;
-
+		bool m_clearDisplayOnNextInput;
+		bool m_hasLeftParenthesis;
+		bool m_hasBinaryInput;
+		float m_Celcius, m_Fehrenheit, m_Kelvin;
+		char m_Operation;
 //Methods
+protected:
+	virtual void initOperators();
 private:
-	double trigonometric_functions(Button^ funcOp, double value);
-	System::Void on_trigonometric_op_Click(System::Object^  sender, System::EventArgs^  e);
-	System::Void MainWindow_Load(System::Object^  sender, System::EventArgs^  e);
-	System::Void standardToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
-	System::Void scientificToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
-	//Set window size to include scientific and standard sections
-	System::Void temperatureToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
-	System::Void menu_history_Click(System::Object^  sender, System::EventArgs^  e);
-	System::Void exitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
-	System::Void btn_number_Click(System::Object^  sender, System::EventArgs^  e);
-	System::Void btn_clear_Click(System::Object^  sender, System::EventArgs^  e);
-	System::Void btn_sign_comma_Click(System::Object^  sender, System::EventArgs^  e);
-	//Handle +, -, * and / operations
-	System::Void btn_arithmetic_op(System::Object^  sender, System::EventArgs^  e);
-	//handle +- button event
-	System::Void btn_op_negative_Click(System::Object^  sender, System::EventArgs^  e);
-	//Handles expression evaluation event
+	////Handles expression evaluation event
 	System::Void btn_op_equals_Click(System::Object^  sender, System::EventArgs^  e);
-	//Handles removing a single number from display
+	System::Void add_operand_to_expression(System::Object^  sender, System::EventArgs^  e);
+	System::Void add_simple_operator_to_expression(System::Object^  sender, System::EventArgs^  e);
+	System::Void add_complex_operator_to_expression(System::Object^  sender, System::EventArgs^  e);
+	System::Void on_binary_op_Click(System::Object^  sender, System::EventArgs^  e);
+	System::Void add_parenthesis_Click(System::Object^  sender, System::EventArgs^  e);
+
+	//System::Void btn_number_Click(System::Object^  sender, System::EventArgs^  e);
+	System::Void btn_clear_Click(System::Object^  sender, System::EventArgs^  e);
+	////Handles removing a single number from display
 	System::Void btn_backslash_Click(System::Object^  sender, System::EventArgs^  e);
-	//Handle scientific button click events
-	System::Void on_scientific_op_Click(System::Object^  sender, System::EventArgs^  e);
-	//Handles scientific operators
-	double scientific_functions(Button^ funcOp, double value);
+
 	//Temperature selection
 	System::Void temperature_button_Click(System::Object^  sender, System::EventArgs^  e);
 	//Convert button event handler
 	System::Void btn_temp_convert_Click(System::Object^  sender, System::EventArgs^  e);
 	//Handle temperature reset button event
 	System::Void btn_temp_reset_Click(System::Object^  sender, System::EventArgs^  e);
+
+	//Called once main window has loaded
+	System::Void MainWindow_Load(System::Object^  sender, System::EventArgs^  e);
+	//Called once File->Standard menu item is clicked
+	System::Void standardToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+	//Called once File->Scientific menu item is clicked,
+	System::Void scientificToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+	//Called once File->Semperature is clicked, set window size to include scientific and standard sections
+	System::Void temperatureToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+	//Called once File->History menu item is clicked, shows history section
+	System::Void menu_history_Click(System::Object^  sender, System::EventArgs^  e);
+	//Called once File->Exit menu item is clicked, exits application
+	System::Void exitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+	
+	//Helper functions
+	void ResetInput();
+	void addToExpression(System::String^ s);
 	//Convert system string to std string using marshal
 	void ToSTDString(System::String ^ s, std::string &os);
 	//Call ToSTDString and return conveted value
 	std::string StringToString(System::String^ s);
-	protected:
-		virtual void initOperators();
 };
 }
