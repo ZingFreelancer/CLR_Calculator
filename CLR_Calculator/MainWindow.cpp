@@ -5,7 +5,10 @@ System::Void CLR_Calculator::MainWindow::btn_op_equals_Click(System::Object ^ se
 {
 	//If input is a binary conversion, do nothing
 	if (m_hasBinaryInput)
+	{
+		ResetInput();
 		return;
+	}
 	//If we are missing right paranthesis, dont evalute expression
 	if (m_hasLeftParenthesis)
 	{
@@ -43,6 +46,9 @@ System::Void CLR_Calculator::MainWindow::add_complex_operator_to_expression(Syst
 {
 	//Convert sender to button object
 	Button^ btn = safe_cast<Button^>(sender);
+	//Check if you appending to current input value is legal operation
+	if (!canAddComplexOperator(txt_display->Text[txt_display->Text->Length-1]))
+		m_clearDisplayOnNextInput = true;
 	//Add button name + left paranthesis to current expression
 	addToExpression(btn->Text + "(");
 	//Set bool to true in anticipation of right paranthesis
@@ -59,7 +65,7 @@ System::Void CLR_Calculator::MainWindow::on_binary_op_Click(System::Object ^ sen
 		txt_display->Text = System::Convert::ToString(static_cast<int>(Double::Parse(txt_display->Text)), 8);
 	else if (btn->Equals(btn_op_hex))
 		txt_display->Text = System::Convert::ToString(static_cast<int>(Double::Parse(txt_display->Text)), 16);
-	listB_history->Items->Add(expression + "=" + txt_display->Text);
+	listB_history->Items->Add(btn->Text+"("+expression + ") = " + txt_display->Text);
 	m_hasBinaryInput = true;
 }
 
@@ -68,6 +74,7 @@ System::Void CLR_Calculator::MainWindow::add_parenthesis_Click(System::Object ^ 
 	//If we have no input (its 0), replace 0 with (
 	if (txt_display->Text == "0" || m_clearDisplayOnNextInput || m_hasBinaryInput)
 	{
+		ResetInput();
 		txt_display->Text = "(";
 		m_hasLeftParenthesis = true;
 	}
@@ -220,16 +227,34 @@ void CLR_Calculator::MainWindow::ResetInput()
 	txt_display->Text = "0";
 	m_hasLeftParenthesis = false;
 	m_clearDisplayOnNextInput = false;
+	m_hasBinaryInput = false;
 }
 
 void CLR_Calculator::MainWindow::addToExpression(System::String^ s)
 {
 	//If we have no input (its 0), or any of flags are set to true replace 0 with s
 	if (txt_display->Text == "0" || m_clearDisplayOnNextInput || m_hasBinaryInput)
+	{
+		ResetInput();
 		txt_display->Text = s;
+	}
 	else
 	{	//Add s to current input
 		txt_display->Text += s;
+	}
+}
+
+bool CLR_Calculator::MainWindow::canAddComplexOperator(wchar_t c)
+{
+	switch (c)
+	{
+		case '%':
+		case ')':
+		case '+':
+		case '-':
+		case '/':
+		case '*': return true;
+		default: return false;
 	}
 }
 

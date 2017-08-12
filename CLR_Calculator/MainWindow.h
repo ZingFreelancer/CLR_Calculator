@@ -1002,6 +1002,7 @@ private:
 	//Helper functions
 	void ResetInput();
 	void addToExpression(System::String^ s);
+	bool canAddComplexOperator(wchar_t c);
 	//Convert system string to std string using marshal
 	void ToSTDString(System::String ^ s, std::string &os);
 	//Call ToSTDString and return conveted value

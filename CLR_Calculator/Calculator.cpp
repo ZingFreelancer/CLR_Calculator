@@ -58,15 +58,16 @@ void Calculator::evaluateOperation(OperatorTypes op)
 {
 	switch (op)
 	{
-	case RightParenthesis:
-	{
-		while (!m_operatorStack.empty() && m_operatorStack.top() != OperatorTypes::LeftParenthesis)
+		case RightParenthesis:
 		{
-			m_operatorStack.pop(); //Remove RightParenthesis
-			evaluateOperation(m_operatorStack.top()); //Perform operation inside Parenthesis
-		}
-		m_operatorStack.pop(); //Remove LeftParenthesis
-	}
+			while (!m_operatorStack.empty() && m_operatorStack.top() != OperatorTypes::LeftParenthesis)
+			{
+				m_operatorStack.pop(); //Remove RightParenthesis
+				evaluateOperation(m_operatorStack.top()); //Perform operation inside Parenthesis
+			}
+			m_operatorStack.pop(); //Remove LeftParenthesis
+		} 
+		break;
 		case Pluss: dualValueOperation(op); break;
 		case Minus: dualValueOperation(op); break;
 		case Multiply: dualValueOperation(op); break;
@@ -141,7 +142,7 @@ bool Calculator::currentOperatorHasLowerPriority(OperatorTypes onStack, Operator
 {
 	switch (onStack)
 	{
-		case LeftParenthesis: return false;
+		case LeftParenthesis: return current == RightParenthesis;
 		case RightParenthesis: return true;
 		case Pluss: return current == OperatorTypes::Pluss || current == OperatorTypes::Minus;
 		case Minus: return current == OperatorTypes::Minus;
