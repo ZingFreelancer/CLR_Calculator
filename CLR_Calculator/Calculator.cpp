@@ -142,7 +142,7 @@ bool Calculator::currentOperatorHasLowerPriority(OperatorTypes onStack, Operator
 {
 	switch (onStack)
 	{
-		case LeftParenthesis: return current == RightParenthesis;
+		case LeftParenthesis: return false;
 		case RightParenthesis: return true;
 		case Pluss: return current == OperatorTypes::Pluss || current == OperatorTypes::Minus;
 		case Minus: return current == OperatorTypes::Minus;
