@@ -1,17 +1,18 @@
 #pragma once
 enum OperatorTypes
 {
+	LeftParenthesis,
+	RightParenthesis,
 	Pluss,
 	Minus,
 	Multiply,
 	Divide,
-	Equals,
 	Negative,
+	Mod,
 	Pi,
 	Log,
 	Ln,
 	Square,
-	Mod,
 	Percent,
 	Sin,
 	Cos,
@@ -19,13 +20,8 @@ enum OperatorTypes
 	Sinh,
 	Cosh,
 	Tanh,
-	Dec,
-	Bin,
-	Hex,
-	Oct,
 	Xbase3,
 	Xbase2,
-	OneDivideX,
-
-
+	OneDivideX
+	//27
 };

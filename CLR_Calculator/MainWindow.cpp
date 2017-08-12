@@ -282,3 +282,54 @@ System::Void CLR_Calculator::MainWindow::btn_temp_reset_Click(System::Object ^ s
 	txt_temperature->Text = "0";
 	txt_temp_result->Text = "0";
 }
+
+void CLR_Calculator::MainWindow::ToSTDString(System::String ^ s, std::string & os)
+{
+	using namespace Runtime::InteropServices;
+	const char* chars =
+		(const char*)(Marshal::StringToHGlobalAnsi(s)).ToPointer();
+	os = chars;
+	Marshal::FreeHGlobal(IntPtr((void*)chars));
+}
+
+std::string CLR_Calculator::MainWindow::StringToString(System::String ^ s)
+{
+	std::string re;
+	ToSTDString(s, re);
+	return re;
+}
+
+void CLR_Calculator::MainWindow::initOperators()
+{
+	calculator->enlistOperatorTypes(StringToString(btn_op_pluss->Text), OperatorTypes::Pluss);
+	calculator->enlistOperatorTypes(StringToString(btn_op_minus->Text), OperatorTypes::Minus);
+	calculator->enlistOperatorTypes(StringToString(btn_op_multiply->Text), OperatorTypes::Multiply);
+	calculator->enlistOperatorTypes(StringToString(btn_op_divide->Text), OperatorTypes::Divide);
+	calculator->enlistOperatorTypes(StringToString(btn_op_negative->Text), OperatorTypes::Negative);
+	calculator->enlistOperatorTypes(StringToString(btn_op_pi->Text), OperatorTypes::Pi);
+	calculator->enlistOperatorTypes(StringToString(btn_op_log->Text), OperatorTypes::Log);
+	calculator->enlistOperatorTypes(StringToString(btn_op_Ln_x->Text), OperatorTypes::Ln);
+	calculator->enlistOperatorTypes(StringToString(btn_op_sqrt->Text), OperatorTypes::Square);
+	calculator->enlistOperatorTypes(StringToString(btn_op_mod->Text), OperatorTypes::Mod);
+	calculator->enlistOperatorTypes(StringToString(btn_op_percent->Text), OperatorTypes::Percent);
+	calculator->enlistOperatorTypes(StringToString(btn_op_sin->Text), OperatorTypes::Sin);
+	calculator->enlistOperatorTypes(StringToString(btn_op_cos->Text), OperatorTypes::Cos);
+	calculator->enlistOperatorTypes(StringToString(btn_op_tan->Text), OperatorTypes::Tan);
+	calculator->enlistOperatorTypes(StringToString(btn_op_sinh->Text), OperatorTypes::Sinh);
+	calculator->enlistOperatorTypes(StringToString(btn_op_cosh->Text), OperatorTypes::Cosh);
+	calculator->enlistOperatorTypes(StringToString(btn_op_tanh->Text), OperatorTypes::Tanh);
+	calculator->enlistOperatorTypes(StringToString(btn_op_x_base3->Text), OperatorTypes::Xbase3);
+	calculator->enlistOperatorTypes(StringToString(btn_op_x_base2->Text), OperatorTypes::Xbase2);
+	calculator->enlistOperatorTypes(StringToString(btn_op_one_divide_x->Text), OperatorTypes::OneDivideX);
+	calculator->enlistOperatorTypes("(", OperatorTypes::LeftParenthesis);
+	calculator->enlistOperatorTypes(")", OperatorTypes::RightParenthesis);
+}
+
+//void Calculator::MarshalString(System::String ^ s, std::string &os)
+//{
+//	using namespace System::Runtime::InteropServices;
+//	const char* chars =
+//		(const char*)(Marshal::StringToHGlobalAnsi(s)).ToPointer();
+//	os = chars;
+//	Marshal::FreeHGlobal(System::IntPtr((void*)chars));
+//}

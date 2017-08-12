@@ -1,7 +1,9 @@
 ﻿#pragma once
+#include "Calculator.h"
 
 namespace CLR_Calculator 
 {
+	using namespace std;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -15,7 +17,7 @@ namespace CLR_Calculator
 	public ref class MainWindow : public System::Windows::Forms::Form
 	{
 	public:
-		MainWindow(void)
+		MainWindow(void) : calculator()
 		{
 			InitializeComponent();
 			//
@@ -33,6 +35,8 @@ namespace CLR_Calculator
 			{
 				delete components;
 			}
+			if (calculator)
+				delete calculator;
 		}
 
 	protected:
@@ -107,6 +111,7 @@ namespace CLR_Calculator
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
+		Calculator *calculator;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -956,7 +961,6 @@ namespace CLR_Calculator
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
 		}
 #pragma endregion
 //Variables
@@ -1001,5 +1005,11 @@ private:
 	System::Void btn_temp_convert_Click(System::Object^  sender, System::EventArgs^  e);
 	//Handle temperature reset button event
 	System::Void btn_temp_reset_Click(System::Object^  sender, System::EventArgs^  e);
+	//Convert system string to std string using marshal
+	void ToSTDString(System::String ^ s, std::string &os);
+	//Call ToSTDString and return conveted value
+	std::string StringToString(System::String^ s);
+	protected:
+		virtual void initOperators();
 };
 }
